@@ -152,6 +152,7 @@ return {
         -- gopls = {},
         -- pyright = {},
         rust_analyzer = {
+            cmd = {"/run/current-system/sw/bin/rust-analyzer"},
             settings = {
               ['rust-analyzer'] = {
                 checkOnSave = {
