@@ -1,0 +1,27 @@
+window {
+	font-size: 20px;
+	font-family: JetBrainsMono Nerd Font;
+	background-color: rgba(0,0,0,0.9);
+	color: red;
+	padding: 12px;
+	
+
+}
+#entry{
+	padding:0.50em;
+}
+#entry:selected {
+	background-color: red;
+	color: white;
+}
+
+#input {
+	background-color: rgba(0,0,0,0.8);
+	border:none;
+	color:red;
+	padding:0.25em;
+}
+image {
+	margin-left: .25em;
+	margin-right: .25em;
+}

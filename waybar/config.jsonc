@@ -1,0 +1,125 @@
+{   
+    "name": "bar0",
+    
+    "layer": "top",
+    "position": "top",
+
+    "height": 10,
+    // "width": 1920,
+
+    "margin": "5",
+    "spacing": 10,
+    
+    "mode": "top",
+    // "exclusive": true,
+
+    "output": "eDP-1",
+    "output": "HDMI-A-1",
+
+    "reload_style_on_change": true,
+
+    "modules-left": ["hyprland/workspaces"],
+    "modules-center": ["hyprland/window"],
+    "modules-right": [
+        "tray",
+        "idle_inhibitor",
+        "backlight",
+        "wireplumber",
+        "battery",
+        "disk",
+        "memory",
+        "cpu",
+        "temperature",
+        "clock"
+    ],
+
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "󰛊 ",
+            "deactivated": "󰾫 "
+        }
+    },
+
+    "backlight": {
+        "interval": 2,
+        "format": "󰖨 {percent}%",
+        "on-scroll-up": "brightnessctl set +4",
+        "on-scroll-down": "brightnessctl set 4-"
+    },
+
+    "wireplumber": {
+        "format": "{icon} {volume}%",
+        "format-muted": "󰝟 ",
+        "on-click": "amixer sset Master toggle",
+        "format-icons": ["", "", "", "", ""]
+    },
+
+    "battery": {
+        "interval": 10,
+        "format": "{icon}{capacity}%",
+        "format-icons": [ "󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹" ],
+        "tooltip": true,
+        "tooltip-format": "{timeTo}"
+    },
+
+    "disk": {
+        "intervel": 30,
+        "format": "󰋊 {percentage_used}%",
+        "tooltip-format": "{used} used out of {total} on \"{path}\" ({percentage_used}%)"
+    },
+
+    "memory": {
+        "interval": 10,
+        "format": " {used}",
+        "tooltip-format": "{used}GiB used of {total}GiB ({percentage}%)"
+    },
+
+    "cpu": {
+        "interval": 10,
+        "format": " {usage}%"
+    },
+
+    "temperature": {
+        "interval": 10
+    },
+
+    "clock": {
+        "interval":1,
+        "format": "{:%H:%M:%S}"
+    },
+
+    "hyprland/workspaces": {
+        "show-special": true,
+        "persistent-workspaces": {
+            "*":[1,2,3,4,5,6,7,8,9,10]
+        },
+        "format": "{icon}",
+        "format-icons": {
+            "active": "",
+            "empty": "",
+            "default": "",
+            "urgent": "",
+            "special": "󰠱"
+        }
+        // "format-window-separator": "|",
+        // "window-rewrite-default": "",
+        // "window-rewrite": {
+        //   "title<.*youtube.*>": " ", // Windows whose titles contain "youtube"
+        //   "class<firefox>": " ", // Windows whose classes are "firefox"
+        //   "class<firefox> title<.*github.*>": " ", // Windows whose class is "firefox" and title contains "github". Note that "class" always comes first.
+        //   "class<alacritty>": "", // Windows that contain "foot" in either class or title. For optimization reasons, it will only match against a title if at least one other window explicitly matches against a title.
+        //   "code": "󰨞"
+        //   }
+    },
+    "hyprland/window": {
+        "icon": true,
+        "icon-size": 22,
+        "rewrite": {
+            "(.*) — Mozilla Firefox": "$1 - 🦊",
+            "(.*) - Visual Studio Code": "$1 - 󰨞 ",
+            "(.*) - Discord": "$1 - 󰙯 ",
+            "^$": "👾"
+        }
+    }
+}
