@@ -7,7 +7,6 @@ fi
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
-source /nix/store/66sj149bh65w8a873268z34gvm47apip-powerlevel10k-1.20.0/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
 
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -16,7 +15,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME=""
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -78,7 +77,7 @@ ZSH_THEME=""
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=( git zsh-syntax-highlighting zsh-autosuggestions )
 
 source $ZSH/oh-my-zsh.sh
 
@@ -113,7 +112,5 @@ source $ZSH/oh-my-zsh.sh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-# Custom
-alias nix-config="nvim NixOS-Hyprland/hosts/default/config.nix"
-alias nix-build="sudo nixos-rebuild switch --flake ~/NixOS-Hyprland/flake.nix"
+export QT_QPA_PLATFORMTHEME=qt5ct
+export GITHUB_TOKEN=$(<~/token.key)
