@@ -92,6 +92,8 @@ return {
 					},
 				},
 			},
+			-- C
+			clangd = {},
 
 			-- Rust
 			rust_analyzer = {
@@ -195,6 +197,7 @@ return {
 			"prettierd",
 			"eslint-lsp",
 			"rust-analyzer",
+			"clangd",
 		}) -- Lua formatter
 
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
