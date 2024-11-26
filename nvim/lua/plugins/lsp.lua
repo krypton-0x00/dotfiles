@@ -1,4 +1,3 @@
--- Core LSP setup with dependencies
 return {
 	"neovim/nvim-lspconfig",
 	dependencies = {
@@ -35,6 +34,9 @@ return {
 			-- Code actions
 			map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
 			map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction", { "n", "x" })
+
+			-- Documentation
+			map("K", vim.lsp.buf.hover, "Hover Documentation")
 		end
 
 		-------------------
@@ -73,13 +75,66 @@ return {
 		-- Language Servers Configuration
 		-------------------
 		local servers = {
+			-- Go
+			gopls = {
+				settings = {
+					gopls = {
+						analyses = {
+							unusedparams = true,
+							shadow = true,
+							unusedwrite = true,
+							useany = true,
+							nilness = true,
+							structtag = true,
+						},
+						staticcheck = true,
+						gofumpt = true,
+						usePlaceholders = true,
+						hints = {
+							assignVariableTypes = true,
+							compositeLiteralFields = true,
+							compositeLiteralTypes = true,
+							constantValues = true,
+							functionTypeParameters = true,
+							parameterNames = true,
+							rangeVariableTypes = true,
+						},
+						codelenses = {
+							gc_details = true,
+							generate = true,
+							regenerate_cgo = true,
+							run_govulncheck = true,
+							test = true,
+							tidy = true,
+							upgrade_dependency = true,
+						},
+						completeUnimported = true,
+						directoryFilters = {
+							"-node_modules",
+							"-vendor",
+						},
+						semanticTokens = true,
+						diagnosticsDelay = "500ms",
+					},
+				},
+				-- Add specific formatting setup for Go files
+				on_attach = function(client, bufnr)
+					-- Format on save
+					vim.api.nvim_create_autocmd("BufWritePre", {
+						buffer = bufnr,
+						callback = function()
+							vim.lsp.buf.format({ async = false })
+						end,
+					})
+				end,
+			},
+
 			-- Python
 			ruff = {},
 			pylsp = {
 				settings = {
 					pylsp = {
 						plugins = {
-							-- Disable conflicting plugins
 							pyflakes = { enabled = false },
 							pycodestyle = { enabled = false },
 							autopep8 = { enabled = false },
@@ -92,19 +147,78 @@ return {
 					},
 				},
 			},
-			-- C
+
+			-- C/C++
 			clangd = {},
 
 			-- Rust
 			rust_analyzer = {
-				-- cmd = { "/run/current-system/sw/bin/rust-analyzer" }, --nixos
 				settings = {
 					["rust-analyzer"] = {
-						checkOnSave = { command = "clippy" },
+						-- Enable inlay hints
+						inlayHints = {
+							enable = true,
+							bindingModeHints = {
+								enable = true,
+							},
+							chainingHints = {
+								enable = true,
+							},
+							closingBraceHints = {
+								enable = true,
+								minLines = 0,
+							},
+							lifetimeElisionHints = {
+								enable = "skip_trivial",
+								useParameterNames = true,
+							},
+							parameterHints = {
+								enable = true,
+							},
+							reborrowHints = {
+								enable = "always",
+							},
+							renderColons = true,
+							typeHints = {
+								enable = true,
+								hideClosureInitialization = false,
+								hideNamedConstructor = false,
+							},
+							expressionAdjustmentHints = {
+								enable = "always",
+							},
+						},
+
+						-- Additional configurations to enhance type inference
+						assist = {
+							importEnforceGranularity = true,
+							importPrefix = "by_self",
+						},
+
+						-- Ensure code actions and completions are comprehensive
+						completion = {
+							autoimport = {
+								enable = true,
+							},
+							privateEditable = {
+								enable = true,
+							},
+						},
+
+						-- Keep the existing clippy check
+						checkOnSave = {
+							command = "clippy",
+						},
 					},
 				},
+				-- Optional: Add an on_attach function to toggle inlay hints
+				on_attach = function(client, bufnr)
+					-- Toggle inlay hints with a keybinding
+					vim.keymap.set("n", "<leader>th", function()
+						vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = bufnr }))
+					end, { buffer = bufnr, desc = "LSP: [T]oggle Inlay [H]ints" })
+				end,
 			},
-
 			-- Web Development
 			html = { filetypes = { "html", "twig", "hbs" } },
 			cssls = {},
@@ -116,6 +230,7 @@ return {
 			terraformls = {},
 			jsonls = {},
 			yamlls = {},
+
 			-- TypeScript/JavaScript
 			ts_ls = {
 				settings = {
@@ -147,11 +262,9 @@ return {
 			-- ESLint
 			eslint = {
 				settings = {
-					-- Specify package manager if needed
 					packageManager = "npm",
 				},
 				on_attach = function(client, bufnr)
-					-- Enable formatting
 					vim.api.nvim_create_autocmd("BufWritePre", {
 						buffer = bufnr,
 						command = "EslintFixAll",
@@ -190,15 +303,25 @@ return {
 		)
 
 		-- Ensure tools are installed
-		local ensure_installed = vim.tbl_keys(servers)
-		table.insert(ensure_installed, {
+		local ensure_installed = {
+			-- Go tools
+			"gopls", -- LSP server
+			"golangci-lint", -- Linter
+			"gofumpt", -- Stricter formatter
+			"gotests", -- Test generation
+			"gomodifytags", -- Modify struct tags
+			"impl", -- Interface implementation generator
+			"delve", -- Debugger
+			"staticcheck", -- Static analysis
+
+			-- Other language tools
 			"stylua",
 			"typescript-language-server",
 			"prettierd",
 			"eslint-lsp",
 			"rust-analyzer",
 			"clangd",
-		}) -- Lua formatter
+		}
 
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
@@ -227,7 +350,6 @@ return {
 				-- Set up auto-formatting for Rust
 				if vim.bo[event.buf].filetype == "rust" then
 					vim.api.nvim_create_autocmd("BufWritePre", {
-						-- pattern = { "*.ts,", "*.tsx", "*.js", "*.jsx" },
 						buffer = event.buf,
 						callback = function()
 							vim.lsp.buf.format({ async = false })
