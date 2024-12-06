@@ -37,6 +37,12 @@ return {
 
 			-- Documentation
 			map("K", vim.lsp.buf.hover, "Hover Documentation")
+			-- Show line Errors
+
+			map("<leader>E", vim.diagnostic.open_float, "Show Line [E]rrors")
+			map("<leader>q", function()
+				vim.diagnostic.hide(nil, 0) -- Hide diagnostics for the current buffer
+			end, "Close [Q]uickly Diagnostic")
 		end
 
 		-------------------
@@ -70,7 +76,15 @@ return {
 				})
 			end
 		end
-
+		vim.diagnostic.config({
+			float = {
+				wrap = true, -- Enable text wrapping
+				max_width = 80, -- Maximum width of the floating window
+				max_height = 20, -- Maximum height of the floating window
+				border = "rounded", -- Optional: adds a rounded border to the floating window
+				source = "always", -- Always show the source of the diagnostic
+			},
+		})
 		-------------------
 		-- Language Servers Configuration
 		-------------------
@@ -257,6 +271,16 @@ return {
 						},
 					},
 				},
+				on_attach = function(client, bufnr)
+					-- Format on save
+					vim.api.nvim_create_autocmd("BufWritePre", {
+						pattern = { "*.ts", "*.tsx", "*.js", "*.jsx" },
+						callback = function()
+							vim.cmd("silent! lua vim.lsp.buf.format()")
+						end,
+						group = vim.api.nvim_create_augroup("FormatOnSave", { clear = true }),
+					})
+				end,
 			},
 
 			-- ESLint
@@ -318,6 +342,7 @@ return {
 			"stylua",
 			"typescript-language-server",
 			"prettierd",
+			"prettier",
 			"eslint-lsp",
 			"rust-analyzer",
 			"clangd",
