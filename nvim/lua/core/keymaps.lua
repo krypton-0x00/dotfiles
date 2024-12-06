@@ -72,6 +72,13 @@ vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { desc = "Open float
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
 
 -- Custom Keymaps
+
+-- Replace all occurences of current word
 vim.keymap.set("n", "<leader>rn", function()
 	return ":IncRename " .. vim.fn.expand("<cword>")
 end, { expr = true })
+
+-- Copy line down
+vim.keymap.set("n", "<leader>d", "yyp", { desc = "Duplicate line down" })
+-- Copy Line UP
+vim.keymap.set("n", "<leader>du", "yyP", { desc = "Duplicate line up" })

@@ -35,6 +35,7 @@ require("lazy").setup({
 	require("plugins.toggleterm"),
 	require("plugins.rename"),
 	require("plugins.luasnip-react-snippits"),
+	require("plugins.visual-multi"),
 })
 
 -- To check the status of your plugins, use :Lazy
