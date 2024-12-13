@@ -295,7 +295,44 @@ return {
 					})
 				end,
 			},
+			-- C#
+			-- Improved C# formatting configuration
+			omnisharp = {
+				cmd = { "omnisharp", "--languageserver" },
+				settings = {
+					FormattingOptions = {
+						EnableEditorConfigSupport = true,
+						OrganizeImports = true,
+					},
+					RoslynExtensionsOptions = {
+						EnableCodeActionsOnMethodReferences = true,
+						EnableImportCompletion = true,
+					},
+				},
+				on_attach = function(client, bufnr)
+					-- Format on save for C# files
+					vim.api.nvim_create_autocmd("BufWritePre", {
+						pattern = { "*.cs" },
+						callback = function()
+							-- Use vim.lsp.buf.format with a filter for OmniSharp
+							vim.lsp.buf.format({
+								async = false,
+								filter = function(c)
+									return c.name == "omnisharp"
+								end,
+							})
+						end,
+						group = vim.api.nvim_create_augroup("CSharpFormatOnSave", { clear = true }),
+					})
 
+					-- Optional: C# specific keymaps
+					local function map(keys, func, desc)
+						vim.keymap.set("n", keys, func, { buffer = bufnr, desc = "LSP (C#): " .. desc })
+					end
+
+					map("<leader>ca", vim.lsp.buf.code_action, "Code Actions")
+				end,
+			},
 			-- Lua
 			lua_ls = {
 				settings = {
@@ -346,6 +383,9 @@ return {
 			"eslint-lsp",
 			"rust-analyzer",
 			"clangd",
+			"omnisharp",
+			"netcoredbg",
+			"csharpier",
 		}
 
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
