@@ -35,6 +35,8 @@ require("lazy").setup({
 	require("plugins.toggleterm"),
 	require("plugins.rename"),
 	require("plugins.luasnip-react-snippits"),
+	require("plugins.csharp-snippets"),
+	require("plugins.csharp-file-templates"),
 	require("plugins.visual-multi"),
 })
 
