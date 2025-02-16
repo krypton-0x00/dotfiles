@@ -10,28 +10,29 @@
     "modules-center": ["custom/spotify"],
     "modules-right": ["tray", "backlight", "pulseaudio", "network", "battery", "clock", "custom/power-menu"],
     "hyprland/workspaces": {
-      "format": "{icon}",
-      "on-click": "activate",
-      "format-icons": {
-        "1": "",
-        "2": "",
-        "3": "",
-        "4": "",
-        "5": "",
-        "urgent": "",
-        "active": "",
-        "default": ""
-      }
+        "all-outputs": true, 
+        "format": "{icon}",
+        "on-click": "hyprctl dispatch workspace {id}",
+        "format-icons": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": "",
+            "urgent": "",
+            "active": "",
+            "default": ""
+        }
     },
-    "hyprland/window": {
+   "hyprland/window": {
         "format": "{}"
     },
     "tray": {
         "spacing": 10
     },
     "clock": {
-        "format": "<span color='#bf616a'> </span>{:%a %b %d}",
-        "format-alt": "<span color='#bf616a'> </span>{:%I:%M %p}",
+        "format": "<span color='#FB958B'> </span>{:%a %b %d}",
+        "format-alt": "<span color='#FB958B'> </span>{:%I:%M %p}",
         "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
     },
 
@@ -117,11 +118,11 @@
     "on-scroll-down": "playerctl previous",
     },
     "custom/power-menu": {
-        "format": " <span color='#6a92d7'>⏻ </span>",
+        "format": " <span color='#FB958B'>⏻ </span>",
         "on-click": "bash ~/.config/waybar/scripts/power-menu/powermenu.sh",
     },
     "custom/launcher": {
-        "format": " <span color='#6a92d7'> </span>",
+        "format": " <span color='#FB958B'> </span>",
         "on-click": "rofi -show drun",
     },
 }

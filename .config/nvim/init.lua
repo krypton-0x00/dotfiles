@@ -19,9 +19,9 @@ require("lazy").setup({
 	"DaikyXendo/nvim-material-icon",
 	require("plugins.neotree"),
 	-- require("plugins.colortheme"),
-	require("plugins.catppuccin"),
+	-- require("plugins.catppuccin"),
 	-- require("plugins.themes.rose-pine"),
-	-- require("plugins.themes.onedark"),
+	require("plugins.themes.onedark"),
 	require("plugins.bufferline"), --TOP bufferLine
 	require("plugins.lualine"),
 	require("plugins.treesitter"),
