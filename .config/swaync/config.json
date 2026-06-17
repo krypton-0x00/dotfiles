@@ -41,6 +41,7 @@
 	"widgets": [
 		"title",
 		"dnd",
+		"buttons-grid",
 		"notifications",
 		"mpris"
 	],
@@ -60,6 +61,14 @@
 		"mpris": {
 			"show-album-art": "always",
 			"loop-carousel": true
+		},
+		"buttons-grid": {
+			"actions": [
+				{
+					"label": "VPN",
+					"command": "~/.config/hypr/scripts/tun0-ip.sh"
+				}
+			]
 		}
 	}
 }

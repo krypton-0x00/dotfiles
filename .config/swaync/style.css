@@ -249,3 +249,25 @@ button:active {
 	background-color: @bl2;
 	color: @bl0;
 }
+
+.buttons-grid {
+	margin-top: var(--gap);
+	margin-bottom: var(--gap);
+}
+
+.buttons-grid .buttons-grid-button {
+	margin: 0;
+	padding: 6px 12px;
+	background-color: @re2;
+	color: @re0;
+	border: 1px solid @re0;
+	border-radius: var(--radius);
+	font-size: 12px;
+	min-height: 0;
+}
+
+.buttons-grid .buttons-grid-button:hover {
+	background-color: @re1;
+	color: @re0;
+	border-color: @re0;
+}
