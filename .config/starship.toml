@@ -1,32 +1,21 @@
 format = """\
 $os\
-$username\
-$hostname\
-$directory\
-$git_branch\
-$git_status\
-$nodejs\
-$rust\
-$python\
-$golang\
-$fill\
-$time\
-$cmd_duration\
-$battery\
+$shell\
+┌─$username─$hostname─$directory─$git_branch$git_status$fill─$time─$cmd_duration\
 $line_break\
 $character\
 """
 
 right_format = """\
-$status\
+$battery\
 """
 
 [character]
-success_symbol = "[╰─❯](#00FF00)"
-error_symbol = "[╰─❯](#00CC00)"
-vimcmd_symbol = "[╰─❮](#00FF00)"
-vimcmd_visual_symbol = "[╰─❮](#00CC00)"
-vimcmd_replace_symbol = "[╰─❮](#005500)"
+success_symbol = "[└─❯](#00FF00)"
+error_symbol = "[└─❯](#00CC00)"
+vimcmd_symbol = "[└─❮](#00FF00)"
+vimcmd_visual_symbol = "[└─❮](#00CC00)"
+vimcmd_replace_symbol = "[└─❮](#005500)"
 format = "$symbol "
 
 [directory]
@@ -36,8 +25,6 @@ truncation_symbol = "../"
 truncation_length = 2
 fish_style_pwd_dir_length = 0
 format = "[$path]($style)"
-before_repo_root_style = "#005500"
-repo_root_style = "#00FF00"
 
 [directory.substitutions]
 "Documents" = "doc"
@@ -51,8 +38,17 @@ repo_root_style = "#00FF00"
 
 [git_branch]
 style = "bold #00CC00"
-symbol = "   "
+symbol = " "
 format = "[$symbol$branch]($style)"
+
+[git_state]
+style = "#005500"
+rebase = "REBASE"
+merge = "MERGE"
+cherry_pick = "CHERRY"
+revert = "REVERT"
+bisec = "BISECT"
+format = "[\($state( $progress_current/ $progress_total)\)]($style)"
 
 [git_status]
 style = "#005500"
@@ -66,38 +62,42 @@ modified = " ✘$count"
 staged = " +$count"
 renamed = " »$count"
 deleted = " ✖$count"
-format = "[$all_status$ahead_behind]($style)"
+format = "([$all_status$ahead_behind]($style))"
 
 [nodejs]
-symbol = "  "
+symbol = ""
 style = "#005500"
-format = "via [$symbol$version]($style)"
+format = "[$symbol$version]($style)"
+detect_extensions = ["js", "ts", "jsx", "tsx", "node"]
 
 [rust]
-symbol = "  "
+symbol = ""
 style = "#005500"
-format = "via [$symbol$version]($style)"
+format = "[$symbol$version]($style)"
+detect_extensions = ["rs"]
 
 [python]
-symbol = "  "
+symbol = ""
 style = "#005500"
 format = "via [$symbol$version]($style)"
+detect_extensions = ["py"]
 
 [golang]
-symbol = "  "
+symbol = ""
 style = "#005500"
-format = "via [$symbol$version]($style)"
+format = "[$symbol$version]($style)"
+detect_extensions = ["go"]
 
 [cmd_duration]
 style = "#005500"
 min_time = 1000
-format = " ⏱ [$duration]($style)"
+format = "⏱[$duration]($style)"
 
 [time]
 disabled = false
-style = "#005500"
-time_format = "%H:%M:%S"
-format = " [$time]($style)"
+style = "bold #00FF00"
+time_format = "%H:%M"
+format = "[$time]($style)"
 
 [line_break]
 disabled = false
@@ -110,19 +110,19 @@ disabled = true
 
 [username]
 show_always = true
-style_user = "bold #00FF00"
 style_root = "bold #00FF00"
-format = "[╭─❛ $user]($style)"
+style_user = "bold #00FF00"
+format = "[$user]($style)"
 
 [hostname]
 ssh_only = false
-style = "bold #00FF00"
-format = "[ ❛ $hostname]($style)"
+style = "bold #00AA00"
+format = "[@$hostname]($style)"
 
 [battery]
-full_symbol = "  "
-charging_symbol = "  "
-discharging_symbol = "  "
+full_symbol = ""
+charging_symbol = ""
+discharging_symbol = ""
 format = "[$symbol$percentage]($style)"
 display = [
   { threshold = 20, style = "#00CC00" },
@@ -131,21 +131,22 @@ display = [
 ]
 
 [status]
-style = "#00FF00"
+style = "#00CC00"
 symbol = "✖"
 format = "[$symbol$status_common_meaning]($style)"
 pipestatus = true
-pipestatus_separator = " | "
+pipestatus_separator = "|"
+disabled = false
 
 [fill]
-symbol = " "
+symbol = "─"
 style = "#005500"
 
 [container]
 style = "#005500"
-symbol = " ⬡"
-format = "[$symbol $name]($style)"
+symbol = "⬡"
+format = "[$symbol$name]($style)"
 
 [direnv]
 style = "#005500"
-format = "[direnv: $loaded]($style)"
+format = "[direnv:$loaded]($style)"
