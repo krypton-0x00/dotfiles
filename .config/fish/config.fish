@@ -81,12 +81,10 @@ if not set -q FLATPAK_PATHS
 end
 
 starship init fish | source
-enable_transience
-function starship_transient_prompt_func
-    starship module character
-end
-function starship_transient_rprompt_func
-    starship module custom.time_arrow
-    starship module custom.transient_time
-end
 zoxide init fish | source
+
+function fish_prompt
+    set_color red
+    printf '[%s@%s %s]$ ' $USER (hostname -s) (prompt_pwd)
+    set_color normal
+end

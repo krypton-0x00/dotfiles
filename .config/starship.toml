@@ -1,32 +1,5 @@
-format = "$username$hostname $directory$character"
+format = "$all"
 
 [character]
-success_symbol = "[﹩](bold #FF0000)"
-error_symbol = "[﹩](bold #FF0000)"
-vicmd_symbol = "[﹩](bold #FF0000)"
-
-[directory]
-style = "bold #FF0000"
-home_symbol = "~"
-truncation_symbol = "../"
-truncation_length = 3
-
-[username]
-show_always = true
-style_user = "bold #FF0000"
-style_root = "bold #FF0000"
-format = "❲$user"
-
-[hostname]
-ssh_only = false
-style = "bold #FF0000"
-format = "@$hostname❳"
-
-[os]
-disabled = true
-
-[shell]
-disabled = true
-
-[line_break]
-disabled = false
+success_symbol = "❯"
+error_symbol = "❯"
