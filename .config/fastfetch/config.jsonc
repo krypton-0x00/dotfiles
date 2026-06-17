@@ -10,77 +10,77 @@
     {
       "type": "title",
       "key": "   ",
-      "keyColor": "#00FF00"
+      "keyColor": "#FF0000"
     },
     {
       "type": "os",
       "key": "   OS",
-      "keyColor": "#00FF00"
+      "keyColor": "#FF0000"
     },
     {
       "type": "kernel",
       "key": "   ",
-      "keyColor": "#00FF00"
+      "keyColor": "#FF0000"
     },
     {
       "type": "uptime",
       "key": "   ",
-      "keyColor": "#00FF00"
+      "keyColor": "#FF0000"
     },
     {
       "type": "packages",
       "key": "   ",
-      "keyColor": "#00FF00"
+      "keyColor": "#FF0000"
     },
     {
       "type": "shell",
       "key": "   ",
-      "keyColor": "#00FF00"
+      "keyColor": "#FF0000"
     },
     {
       "type": "wm",
       "key": "   ",
-      "keyColor": "#00FF00"
+      "keyColor": "#FF0000"
     },
     {
       "type": "terminal",
       "key": "   ",
-      "keyColor": "#00FF00"
+      "keyColor": "#FF0000"
     },
     {
       "type": "cpu",
       "key": "   ",
-      "keyColor": "#00FF00"
+      "keyColor": "#FF0000"
     },
     {
       "type": "gpu",
       "key": "   ",
-      "keyColor": "#00FF00"
+      "keyColor": "#FF0000"
     },
     {
       "type": "memory",
       "key": "   ",
-      "keyColor": "#00FF00"
+      "keyColor": "#FF0000"
     },
     {
       "type": "disk",
       "key": "   ",
-      "keyColor": "#00FF00"
+      "keyColor": "#FF0000"
     },
     {
       "type": "battery",
       "key": "   ",
-      "keyColor": "#00FF00"
+      "keyColor": "#FF0000"
     },
     {
       "type": "localip",
       "key": "   ",
-      "keyColor": "#00FF00"
+      "keyColor": "#FF0000"
     },
     {
       "type": "bluetooth",
       "key": "   ",
-      "keyColor": "#00FF00"
+      "keyColor": "#FF0000"
     },
     {
       "type": "colors",

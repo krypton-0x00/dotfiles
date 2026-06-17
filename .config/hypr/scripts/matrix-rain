@@ -21,15 +21,15 @@ try:
         sys.stdout.write('\033[40m')
         for i in range(cols):
             if columns[i] <= 0:
-                char = '\033[92m' + random.choice(chars) + '\033[0m'
+                char = '\033[91m' + random.choice(chars) + '\033[0m'
                 sys.stdout.write(char)
                 columns[i] = random.randint(1, 10)
             else:
                 if random.random() > 0.9:
-                    char = '\033[92m' + random.choice(chars) + '\033[0m'
+                    char = '\033[91m' + random.choice(chars) + '\033[0m'
                     sys.stdout.write(char)
                 else:
-                    char = '\033[32m' + random.choice(chars.lower()) + '\033[0m'
+                    char = '\033[31m' + random.choice(chars.lower()) + '\033[0m'
                     sys.stdout.write(char)
                 columns[i] -= 1
         sys.stdout.flush()

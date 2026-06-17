@@ -6,19 +6,19 @@
 }
 
 @define-color no0 #000000;
-@define-color re0 #00FF00;
-@define-color re1 #005500;
-@define-color re2 #002200;
-@define-color gr0 #00CC00;
-@define-color gr2 #003300;
-@define-color gr0tr #00FF0040;
-@define-color ye0 #00CC00;
-@define-color ye2 #002200;
-@define-color bl0 #00AA00;
-@define-color bl2 #002200;
-@define-color cy0 #00FF00;
-@define-color cy2 #002200;
-@define-color wh0 #00AA00;
+@define-color re0 #FF0000;
+@define-color re1 #550000;
+@define-color re2 #220000;
+@define-color gr0 #CC0000;
+@define-color gr2 #330000;
+@define-color gr0tr #FF000040;
+@define-color ye0 #CC0000;
+@define-color ye2 #220000;
+@define-color bl0 #AA0000;
+@define-color bl2 #220000;
+@define-color cy0 #FF0000;
+@define-color cy2 #220000;
+@define-color wh0 #AA0000;
 @define-color tr0 rgba(0, 0, 0, 0.05);
 
 .widget-dnd label,
@@ -32,7 +32,7 @@
 	min-width: 35px;
 	min-height: 15px;
 	background: @re2;
-	color: #1DED83FF;
+	color: #FF3333FF;
 }
 
 .widget-dnd switch slider {

@@ -32,17 +32,17 @@ set -gx MICRO_TRUECOLOR 1
 set -g fish_color_autosuggestion 4D5A80
 
 ## Cancel
-set -g fish_color_cancel F24848 --reverse
+set -g fish_color_cancel FF0000 --reverse
 
 ## Commands & syntax
 set -g fish_color_command 3051F2
 set -g fish_color_comment 4D5A80
 set -g fish_color_cwd 30F291
-set -g fish_color_cwd_root F24848
-set -g fish_color_end F24848
+set -g fish_color_cwd_root FF0000
+set -g fish_color_end FF0000
 
 ## Errors
-set -g fish_color_error F24848 --bold --background=631F21
+set -g fish_color_error FF0000 --bold --background=550000
 
 ## Misc syntax
 set -g fish_color_escape 4D5A80
@@ -50,19 +50,19 @@ set -g fish_color_history_current --bold
 set -g fish_color_host A130F2
 set -g fish_color_host_remote A130F2
 set -g fish_color_keyword A130F2
-set -g fish_color_normal F24848
+set -g fish_color_normal FF0000
 set -g fish_color_operator 30F291
-set -g fish_color_param 29BECC
+set -g fish_color_param CC0000
 set -g fish_color_quote F2D230
-set -g fish_color_redirection F24848 --bold
+set -g fish_color_redirection FF0000 --bold
 
 ## Search / selection
-set -g fish_color_search_match 30F291 --bold --background=0C3423
-set -g fish_color_selection 29BECC --bold --background=0B292F
+set -g fish_color_search_match 30F291 --bold --background=342222
+set -g fish_color_selection CC0000 --bold --background=0B292F
 
 ## Status / user
-set -g fish_color_status F24848
-set -g fish_color_user 29BECC
+set -g fish_color_status FF0000
+set -g fish_color_user CC0000
 set -g fish_color_valid_path --underline
 
 ## Pager

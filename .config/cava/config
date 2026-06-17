@@ -6,9 +6,9 @@ autosens = 1
 [color]
 gradient = 1
 gradient_count = 1
-gradient_color_1 = '#002200'
-gradient_color_2 = '#005500'
-gradient_color_3 = '#00FF00'
+gradient_color_1 = '#220000'
+gradient_color_2 = '#550000'
+gradient_color_3 = '#FF0000'
 
 [smoothing]
 integral = 40

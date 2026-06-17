@@ -136,7 +136,7 @@ button {
 }
 
 button selected {
-	background-image:				#00ff00;
+	background-image:				#ff0000;
 	text-color:						@re0;
 }
 

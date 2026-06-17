@@ -2,45 +2,45 @@
 @define-color no1 #000000;
 @define-color no2 #001000;
 
-@define-color re0 #00FF00;
-@define-color re1 #005500;
-@define-color re2 #002200;
+@define-color re0 #FF0000;
+@define-color re1 #550000;
+@define-color re2 #220000;
 
-@define-color gr0 #00CC00;
-@define-color gr1 #004400;
-@define-color gr2 #001800;
+@define-color gr0 #CC0000;
+@define-color gr1 #440000;
+@define-color gr2 #180000;
 
-@define-color ye0 #55FF55;
-@define-color ye1 #003300;
-@define-color ye2 #001800;
+@define-color ye0 #FF5555;
+@define-color ye1 #330000;
+@define-color ye2 #180000;
 
-@define-color bl0 #00AA00;
-@define-color bl1 #002200;
+@define-color bl0 #AA0000;
+@define-color bl1 #220000;
 @define-color bl2 #001000;
 
-@define-color vi0 #00FF55;
-@define-color vi1 #003300;
-@define-color vi2 #001800;
+@define-color vi0 #FF0055;
+@define-color vi1 #330000;
+@define-color vi2 #180000;
 
-@define-color cy0 #00DD00;
-@define-color cy1 #002200;
+@define-color cy0 #DD0000;
+@define-color cy1 #220000;
 @define-color cy2 #001000;
 
-@define-color wh0 #00FF00;
-@define-color wh1 #005500;
-@define-color wh2 #002200;
+@define-color wh0 #FF0000;
+@define-color wh1 #550000;
+@define-color wh2 #220000;
 
 @define-color me0 #006600;
-@define-color me1 #002200;
+@define-color me1 #220000;
 @define-color me2 #001000;
 
-@define-color or0 #00FF00;
-@define-color or1 #005500;
-@define-color or2 #002200;
+@define-color or0 #FF0000;
+@define-color or1 #550000;
+@define-color or2 #220000;
 
-@define-color pi0 #00FF55;
-@define-color pi1 #004400;
-@define-color pi2 #002200;
+@define-color pi0 #FF0055;
+@define-color pi1 #440000;
+@define-color pi2 #220000;
 
 * {
 	font-family: Hack Nerd Font;
