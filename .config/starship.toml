@@ -1,61 +1,26 @@
-format = """\
-╭─ $username$hostname $directory $git_branch$git_status $fill $time ─╮\
-$line_break\
-╰─$fill─╯\
-$line_break\
-$character\
-"""
+format = "$username$hostname $directory$character"
 
 [character]
-success_symbol = "[▸](#00FF00)"
-error_symbol = "[▸](#00CC00)"
-vimcmd_symbol = "[◂](#00FF00)"
-vimcmd_visual_symbol = "[◂](#00CC00)"
-vimcmd_replace_symbol = "[◂](#005500)"
+success_symbol = "[﹩](bold #FF0000)"
+error_symbol = "[﹩](bold #FF0000)"
+vicmd_symbol = "[﹩](bold #FF0000)"
 
 [directory]
-style = "bold #00FF00"
+style = "bold #FF0000"
 home_symbol = "~"
 truncation_symbol = "../"
-truncation_length = 2
-fish_style_pwd_dir_length = 0
+truncation_length = 3
 
-[directory.substitutions]
-"Documents" = "doc"
-"Downloads" = "dwn"
-"Projects" = "prj"
-"Desktop" = "desk"
-".config" = "cfg"
-"dotfiles" = "dots"
-".local" = "loc"
-"github" = "gh"
+[username]
+show_always = true
+style_user = "bold #FF0000"
+style_root = "bold #FF0000"
+format = "❲$user"
 
-[git_branch]
-style = "bold #00CC00"
-symbol = " "
-
-[git_status]
-style = "#005500"
-format = "([$all_status$ahead_behind]($style))"
-conflicted = " 🏳"
-ahead = " ⇡$count"
-behind = " ⇣$count"
-diverged = " ⇕$count"
-untracked = " ?$count"
-stashed = " 📦"
-modified = " ✘$count"
-staged = " +$count"
-renamed = " »$count"
-deleted = " ✖$count"
-
-[time]
-disabled = false
-time_format = "%H:%M"
-format = "[$time]($style)"
-style = "bold #00FF00"
-
-[line_break]
-disabled = false
+[hostname]
+ssh_only = false
+style = "bold #FF0000"
+format = "@$hostname❳"
 
 [os]
 disabled = true
@@ -63,54 +28,5 @@ disabled = true
 [shell]
 disabled = true
 
-[username]
-show_always = true
-style_user = "bold #00FF00"
-style_root = "bold #00FF00"
-format = "[$user]($style)"
-
-[hostname]
-ssh_only = false
-style = "#00AA00"
-format = "[@$hostname]($style)"
-
-[battery]
-format = "[$symbol$percentage]($style)"
-full_symbol = ""
-charging_symbol = ""
-discharging_symbol = ""
+[line_break]
 disabled = false
-display = [
-  { threshold = 20, style = "#00CC00" },
-  { threshold = 50, style = "#00AA00" },
-  { style = "#005500" }
-]
-
-[cmd_duration]
-style = "#005500"
-min_time = 1000
-format = "[⏱$duration]($style)"
-
-[nodejs]
-symbol = ""
-style = "#005500"
-format = "[$symbol$version]($style)"
-
-[rust]
-symbol = ""
-style = "#005500"
-format = "[$symbol$version]($style)"
-
-[python]
-symbol = ""
-style = "#005500"
-format = "[$symbol$version]($style)"
-
-[golang]
-symbol = ""
-style = "#005500"
-format = "[$symbol$version]($style)"
-
-[fill]
-symbol = "─"
-style = "#005500"
