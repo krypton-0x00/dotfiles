@@ -1,0 +1,19 @@
+* {
+	background:						#000000E0;
+	background-full:				#000000FF;
+	foreground:						#00FF00;
+	accent:							#00FF00;
+	background-tb:					#002200;
+	border-tb:						#00FF00;
+	background-none:				#000000;
+	selected:						linear-gradient(to right, #00FF0030, #00FF0030);
+	button:							linear-gradient(#00FF0030);
+	button-selected:				linear-gradient(#00FF0030);
+	active:							linear-gradient(to right, #00CC00FF, #00FF00FF);
+	urgent:							#00FF00;
+	font:							"Hack Nerd Font 12";
+	gap:							8px;
+	radius:							0px;
+	no0:							#000000;
+	re0:							#00FF00;
+}
