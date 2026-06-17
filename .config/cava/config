@@ -1,0 +1,16 @@
+[general]
+bars = 10
+framerate = 60
+autosens = 1
+
+[color]
+gradient = 1
+gradient_count = 1
+gradient_color_1 = '#002200'
+gradient_color_2 = '#005500'
+gradient_color_3 = '#00FF00'
+
+[smoothing]
+integral = 40
+monstercat = 1
+gravity = 100

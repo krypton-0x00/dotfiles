@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>new tab</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #000000;
+    color: #00FF00;
+    font-family: 'Hack', 'Courier New', monospace;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  #clock {
+    font-size: 6em;
+    font-weight: bold;
+    letter-spacing: 8px;
+    text-shadow: 0 0 10px #00FF00, 0 0 20px #00FF0040;
+  }
+  #date {
+    font-size: 1.2em;
+    margin-top: 10px;
+    color: #00AA00;
+    letter-spacing: 4px;
+  }
+  #prompt {
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.2em;
+  }
+  #prompt::before {
+    content: '>_ SYSTEM';
+    color: #005500;
+  }
+  #cursor {
+    display: inline-block;
+    width: 10px;
+    height: 1.2em;
+    background: #00FF00;
+    margin-left: 5px;
+    animation: blink 1s step-end infinite;
+  }
+  @keyframes blink {
+    50% { opacity: 0; }
+  }
+  #search {
+    margin-top: 30px;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #005500;
+    color: #00FF00;
+    font-family: inherit;
+    font-size: 1em;
+    width: 400px;
+    text-align: center;
+    padding: 8px;
+    outline: none;
+  }
+  #search:focus {
+    border-bottom-color: #00FF00;
+  }
+  .links {
+    margin-top: 40px;
+    display: flex;
+    gap: 40px;
+  }
+  .links a {
+    color: #005500;
+    text-decoration: none;
+    font-size: 0.9em;
+    letter-spacing: 2px;
+  }
+  .links a:hover {
+    color: #00FF00;
+  }
+</style>
+</head>
+<body>
+<div id="clock"></div>
+<div id="date"></div>
+<div id="prompt">READY<span id="cursor"></span></div>
+<input id="search" type="text" placeholder="enter search query..." autofocus>
+<div class="links">
+  <a href="https://github.com">github</a>
+  <a href="https://reddit.com">reddit</a>
+  <a href="https://www.youtube.com">youtube</a>
+</div>
+<script>
+  function updateClock() {
+    const now = new Date();
+    const h = String(now.getHours()).padStart(2, '0');
+    const m = String(now.getMinutes()).padStart(2, '0');
+    const s = String(now.getSeconds()).padStart(2, '0');
+    document.getElementById('clock').textContent = h + ':' + m + ':' + s;
+    const opts = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    document.getElementById('date').textContent = now.toLocaleDateString('en-US', opts).toUpperCase();
+  }
+  updateClock();
+  setInterval(updateClock, 1000);
+  document.getElementById('search').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') {
+      const q = this.value.trim();
+      if (q) window.location = 'https://www.google.com/search?q=' + encodeURIComponent(q);
+    }
+  });
+</script>
+</body>
+</html>

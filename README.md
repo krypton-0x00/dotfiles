@@ -2,6 +2,14 @@
 
 Matrix green-on-black Hyprland rice.
 
+## Install
+
+```bash
+git clone https://github.com/krypton-0x00/dotfiles.git ~/dotfiles
+cd ~/dotfiles
+./install.sh
+```
+
 ## Stack
 
 | Component | Choice |

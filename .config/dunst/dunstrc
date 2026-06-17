@@ -1,0 +1,72 @@
+[global]
+    monitor = 0
+    follow = mouse
+    width = 400
+    height = 300
+    origin = top-right
+    offset = 20x20
+    scale = 0
+    notification_limit = 20
+    progress_bar = true
+    progress_bar_height = 10
+    progress_bar_frame_width = 1
+    progress_bar_min_width = 150
+    progress_bar_max_width = 300
+    indicate_hidden = yes
+    shrink = no
+    separator_height = 2
+    padding = 10
+    horizontal_padding = 10
+    text_icon_padding = 0
+    frame_width = 2
+    frame_color = "#00FF00"
+    gap_size = 5
+    separator_color = frame
+    sort = yes
+    idle_threshold = 120
+    font = Hack Nerd Font 10
+    markup = full
+    format = "<b>%s</b>\n%b"
+    alignment = left
+    vertical_alignment = center
+    show_age_threshold = -1
+    ellipsize = middle
+    ignore_newline = no
+    stack_duplicates = true
+    hide_duplicates_count = false
+    show_indicators = no
+    icon_position = off
+    icon_path = /usr/share/icons/Adwaita/16x16/status/
+    sticky_history = yes
+    history_length = 50
+    dmenu = /usr/bin/rofi -dmenu -p dunst
+    browser = /usr/bin/firefox
+    always_run_script = true
+    mouse_left_click = close
+    mouse_middle_click = do_action
+    mouse_right_click = close_all
+    line_height = 0
+
+[urgency_low]
+    background = "#000000"
+    foreground = "#00FF00"
+    frame_color = "#00FF00"
+    highlight = "#00FF00"
+    timeout = 10
+    icon = /usr/share/icons/Adwaita/16x16/status/
+
+[urgency_normal]
+    background = "#000000"
+    foreground = "#00FF00"
+    frame_color = "#00FF00"
+    highlight = "#00FF00"
+    timeout = 10
+    icon = /usr/share/icons/Adwaita/16x16/status/
+
+[urgency_critical]
+    background = "#000000"
+    foreground = "#00FF00"
+    frame_color = "#00FF00"
+    highlight = "#00FF00"
+    timeout = 0
+    icon = /usr/share/icons/Adwaita/16x16/status/

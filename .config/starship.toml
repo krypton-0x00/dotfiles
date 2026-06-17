@@ -1,0 +1,58 @@
+format = "$all"
+
+[palettes]
+matrix = "matrix"
+
+[palette.matrix]
+green = "#00FF00"
+green_dim = "#005500"
+green_bright = "#00CC00"
+black = "#000000"
+
+[character]
+success_symbol = "[▶](green)"
+error_symbol = "[▶](green_bright)"
+vimcmd_symbol = "[◆](green)"
+
+[directory]
+style = "green"
+home_symbol = "~"
+truncation_symbol = "../"
+
+[git_branch]
+style = "green_bright"
+
+[git_status]
+style = "green_dim"
+
+[nodejs]
+style = "green_dim"
+
+[rust]
+style = "green_dim"
+
+[python]
+style = "green_dim"
+
+[cmd_duration]
+style = "green_dim"
+
+[line_break]
+disabled = false
+
+[fill]
+symbol = " "
+
+[os]
+disabled = true
+
+[shell]
+disabled = true
+
+[username]
+show_always = false
+style_user = "green_dim"
+
+[hostname]
+ssh_only = true
+style = "green_dim"
