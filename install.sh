@@ -13,7 +13,7 @@ PACKAGES_OFFICIAL=(
   networkmanager nvtop obs-studio pavucontrol pipewire playerctl
   polkit-gnome python python-gobject qt5ct qt6ct retroarch rofi
   slurp spotify-launcher starship swaync swayosd tmux
-  ttf-hack-nerd-font udiskie waybar wf-recorder wireplumber
+  sddm ttf-hack-nerd-font udiskie waybar wf-recorder wireplumber
   wl-clipboard xdg-desktop-portal xdg-desktop-portal-hyprland
   xclip yazi zoxide
 )
@@ -150,6 +150,13 @@ install_links
 
 gsettings set org.gnome.desktop.interface gtk-theme "Black n Red GTK" 2>/dev/null || true
 gsettings set org.gnome.desktop.interface icon-theme "Slot-Nord-Dark-Colorize-Icons" 2>/dev/null || true
+
+if systemctl is-enabled ly &>/dev/null; then
+  echo "  Disabling ly login manager..."
+  sudo systemctl disable ly 2>/dev/null || true
+fi
+echo "  Enabling SDDM login manager..."
+sudo systemctl enable sddm 2>/dev/null || true
 
 echo "  NOTE: Slot-Nord-Dark-Colorize-Icons icon theme (262MB) is not in git."
 echo "  Copy it manually after install:"
