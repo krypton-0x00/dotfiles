@@ -964,6 +964,7 @@ GtkIconView.view.cell:selected:focused {
 	border-width: 0 0 1 0;
 	border-color: @toolbar_border;
 	border-style: solid;
+	padding: 2px 4px;
 }
 
 /***************
@@ -974,6 +975,7 @@ GtkIconView.view.cell:selected:focused {
 	border-radius: 4 4 0 0;
 	border-width: 1 1 0 1;
 	color: @theme_fg_color;
+	padding: 4px 10px;
 }
 
 .menubar.menuitem:hover,
