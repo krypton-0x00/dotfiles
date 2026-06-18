@@ -19,7 +19,7 @@
     horizontal_padding = 10
     text_icon_padding = 0
     frame_width = 2
-    frame_color = "#FF0000"
+    frame_color = "#E61C24"
     gap_size = 5
     separator_color = frame
     sort = yes
@@ -48,25 +48,25 @@
     line_height = 0
 
 [urgency_low]
-    background = "#000000"
-    foreground = "#FF0000"
-    frame_color = "#FF0000"
-    highlight = "#FF0000"
+    background = "#1A1B1E"
+    foreground = "#E61C24"
+    frame_color = "#E61C24"
+    highlight = "#E61C24"
     timeout = 10
     icon = /usr/share/icons/Adwaita/16x16/status/
 
 [urgency_normal]
-    background = "#000000"
-    foreground = "#FF0000"
-    frame_color = "#FF0000"
-    highlight = "#FF0000"
+    background = "#1A1B1E"
+    foreground = "#E61C24"
+    frame_color = "#E61C24"
+    highlight = "#E61C24"
     timeout = 10
     icon = /usr/share/icons/Adwaita/16x16/status/
 
 [urgency_critical]
-    background = "#000000"
-    foreground = "#FF0000"
-    frame_color = "#FF0000"
-    highlight = "#FF0000"
+    background = "#1A1B1E"
+    foreground = "#E61C24"
+    frame_color = "#E61C24"
+    highlight = "#E61C24"
     timeout = 0
     icon = /usr/share/icons/Adwaita/16x16/status/

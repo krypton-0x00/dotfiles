@@ -15,7 +15,7 @@ channels = mono
 fragment_shader = winamp_line_style_spectrum.frag
 
 [color]
-background = '#000000'
+background = '#1A1B1E'
 gradient = 1
 gradient_color_1 = '#319C08'
 gradient_color_2 = '#29CE10'
