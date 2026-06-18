@@ -21,7 +21,7 @@ PACKAGES_OFFICIAL=(
 PACKAGES_AUR=(
   cava cliphist hyprpicker keyb nwg-look obsidian overskride
   python-hijridate rofimoji satthy ttf-geist-mono-nerd-font
-  trinity-gtk-theme vesktop-bin waybar-updates wleave
+  vesktop-bin waybar-updates wleave
 )
 
 declare -A LINKS
@@ -58,6 +58,9 @@ LINKS=(
   [".config/firefoxhome.html"]="$HOME/.config/firefoxhome.html"
   [".config/gtk-3.0/settings.ini"]="$HOME/.config/gtk-3.0/settings.ini"
   [".gtkrc-2.0"]="$HOME/.gtkrc-2.0"
+  [".themes/Black n Red GTK"]="$HOME/.themes/Black n Red GTK"
+  [".config/opencode/themes/crimson.json"]="$HOME/.config/opencode/themes/crimson.json"
+  [".config/opencode/tui.json"]="$HOME/.config/opencode/tui.json"
   ["walls/matrix-2560x1440.png"]="$HOME/.config/hypr/walls/matrix-2560x1440.png"
   ["walls/chiyoda-2560x1440.png"]="$HOME/.config/hypr/walls/chiyoda-2560x1440.png"
   ["walls/ikebukuro-2560x1440.png"]="$HOME/.config/hypr/walls/ikebukuro-2560x1440.png"
@@ -144,6 +147,8 @@ install_links() {
 [ "$INSTALL_PKGS" = true ] && install_packages
 [ "$NO_BACKUP" = false ] && backup
 install_links
+
+gsettings set org.gnome.desktop.interface gtk-theme "Black n Red GTK" 2>/dev/null || true
 
 echo ""
 echo "  Reload your config:"
