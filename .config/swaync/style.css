@@ -1,8 +1,13 @@
 * {
-	all: unset;
 	font-size: 12px;
 	font-family: "Hack Nerd Font";
-	transition: 0;
+	transition: 200ms;
+}
+
+.notification-row,
+.control-center,
+.blank-window {
+	background: transparent;
 }
 
 @define-color no0 #000000;
