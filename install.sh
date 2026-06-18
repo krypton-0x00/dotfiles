@@ -149,6 +149,12 @@ install_links() {
 install_links
 
 gsettings set org.gnome.desktop.interface gtk-theme "Black n Red GTK" 2>/dev/null || true
+gsettings set org.gnome.desktop.interface icon-theme "Slot-Nord-Dark-Colorize-Icons" 2>/dev/null || true
+
+echo "  NOTE: Slot-Nord-Dark-Colorize-Icons icon theme (262MB) is not in git."
+echo "  Copy it manually after install:"
+echo "    cp -r /path/to/Slot-Nord-Dark-Colorize-Icons \$HOME/.icons/"
+echo ""
 
 echo ""
 echo "  Reload your config:"
