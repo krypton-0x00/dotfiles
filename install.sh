@@ -158,6 +158,11 @@ fi
 echo "  Enabling SDDM login manager..."
 sudo systemctl enable sddm 2>/dev/null || true
 
+echo "  NOTE: Copy SDDM config to /etc/ (requires sudo):"
+echo "    sudo mkdir -p /etc/sddm.conf.d"
+echo "    sudo cp \$DOTFILES_DIR/etc/sddm.conf.d/* /etc/sddm.conf.d/"
+echo ""
+
 echo "  NOTE: Slot-Nord-Dark-Colorize-Icons icon theme (262MB) is not in git."
 echo "  Copy it manually after install:"
 echo "    cp -r /path/to/Slot-Nord-Dark-Colorize-Icons \$HOME/.icons/"
