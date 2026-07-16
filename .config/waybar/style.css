@@ -371,3 +371,7 @@ window#waybar.hidden {
 	padding: 0 32px;
 	border: none;
 }
+#battery {
+  color: @re0;
+  /* background-color: @re0; */
+}

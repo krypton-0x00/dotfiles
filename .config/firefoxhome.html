@@ -92,14 +92,31 @@
 </div>
 <script>
   function updateClock() {
-    const now = new Date();
-    const h = String(now.getHours()-12).padStart(2, '0');
-    const m = String(now.getMinutes()).padStart(2, '0');
-    const s = String(now.getSeconds()).padStart(2, '0');
-    document.getElementById('clock').textContent = h + ':' + m + ':' + s;
-    const opts = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    document.getElementById('date').textContent = now.toLocaleDateString('en-US', opts).toUpperCase();
-  }
+  const now = new Date();
+
+  let h = now.getHours();
+  const ampm = h >= 12 ? 'PM' : 'AM';
+
+  h = h % 12;
+  h = h ? h : 12; // Convert 0 to 12
+
+  const hours = String(h).padStart(2, '0');
+  const minutes = String(now.getMinutes()).padStart(2, '0');
+  const seconds = String(now.getSeconds()).padStart(2, '0');
+
+  document.getElementById('clock').textContent =
+    `${hours}:${minutes}:${seconds} ${ampm}`;
+
+  const opts = {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  };
+
+  document.getElementById('date').textContent =
+    now.toLocaleDateString('en-US', opts).toUpperCase();
+}
   updateClock();
   setInterval(updateClock, 1000);
   document.getElementById('search').addEventListener('keydown', function(e) {

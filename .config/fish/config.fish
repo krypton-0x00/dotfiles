@@ -80,7 +80,7 @@ if not set -q FLATPAK_PATHS
     set -gx FLATPAK_PATHS (flatpak --installations)
 end
 
-starship init fish | source
+# starship init fish | source
 zoxide init fish | source
 
 function fish_prompt
@@ -88,3 +88,4 @@ function fish_prompt
     printf '[%s@%s %s]$ ' $USER (hostname -s) (prompt_pwd)
     set_color normal
 end
+	# starship init fish | source

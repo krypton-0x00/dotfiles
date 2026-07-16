@@ -146,7 +146,7 @@ function save_geometry() {
     wl-copy --type image/png < <(grim -g "${geometry}" -)
   fi
 
-  send_notification $output
+  # send_notification $output
 }
 
 function checkRunning() {

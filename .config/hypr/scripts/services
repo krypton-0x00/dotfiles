@@ -4,6 +4,7 @@ killall swaync hyprpaper waybar hypridle 2>/dev/null
 hyprpaper &
 waybar &
 swaync &
+nm-applet &
 hypridle &
 wl-paste --watch cliphist store &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &

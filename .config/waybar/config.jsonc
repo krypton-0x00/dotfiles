@@ -30,7 +30,8 @@
 			"custom/arrow-left-re0",
 			"hyprland/workspaces",
 			"custom/arrow-left-no1",
-			"custom/updates"
+      "battery"
+			// "custom/updates"
 		],
 		"modules-center": [
 			"custom/arrow-right-no1",
@@ -43,9 +44,10 @@
 		],
 		"modules-right": [
 			"custom/arrow-right-no1",
-			"network",
+			// "network",
 			"hyprland/language",
-			"pulseaudio"
+			"pulseaudio",
+			"tray"
 		]
 	}
 ,	{
