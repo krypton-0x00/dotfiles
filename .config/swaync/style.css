@@ -11,19 +11,19 @@
 }
 
 @define-color no0 #0D0E10;
-@define-color re0 #E61C24;
+@define-color re0 #22C55E;
 @define-color re1 #2B2D31;
 @define-color re2 #1A1B1E;
-@define-color gr0 #9E1B1E;
+@define-color gr0 #1A9E4A;
 @define-color gr2 #1A1B1E;
-@define-color gr0tr #E61C2440;
-@define-color ye0 #9E1B1E;
+@define-color gr0tr #22C55E40;
+@define-color ye0 #1A9E4A;
 @define-color ye2 #1A1B1E;
-@define-color bl0 #9E1B1E;
+@define-color bl0 #1A9E4A;
 @define-color bl2 #1A1B1E;
-@define-color cy0 #E61C24;
+@define-color cy0 #22C55E;
 @define-color cy2 #1A1B1E;
-@define-color wh0 #9E1B1E;
+@define-color wh0 #1A9E4A;
 @define-color tr0 rgba(0, 0, 0, 0.05);
 
 .widget-dnd label,

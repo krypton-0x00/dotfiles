@@ -32,17 +32,17 @@ set -gx MICRO_TRUECOLOR 1
 set -g fish_color_autosuggestion 4D5A80
 
 ## Cancel
-set -g fish_color_cancel E61C24 --reverse
+set -g fish_color_cancel 22C55E --reverse
 
 ## Commands & syntax
 set -g fish_color_command 3051F2
 set -g fish_color_comment 4D5A80
-set -g fish_color_cwd 30F291
-set -g fish_color_cwd_root E61C24
-set -g fish_color_end E61C24
+set -g fish_color_cwd 22C55E
+set -g fish_color_cwd_root 22C55E
+set -g fish_color_end 22C55E
 
 ## Errors
-set -g fish_color_error E61C24 --bold --background=2B2D31
+set -g fish_color_error 22C55E --bold --background=2B2D31
 
 ## Misc syntax
 set -g fish_color_escape 4D5A80
@@ -50,19 +50,19 @@ set -g fish_color_history_current --bold
 set -g fish_color_host A130F2
 set -g fish_color_host_remote A130F2
 set -g fish_color_keyword A130F2
-set -g fish_color_normal E61C24
-set -g fish_color_operator 30F291
-set -g fish_color_param 9E1B1E
+set -g fish_color_normal 22C55E
+set -g fish_color_operator 22C55E
+set -g fish_color_param 1A9E4A
 set -g fish_color_quote F2D230
-set -g fish_color_redirection E61C24 --bold
+set -g fish_color_redirection 22C55E --bold
 
 ## Search / selection
-set -g fish_color_search_match 30F291 --bold --background=1A1B1E
-set -g fish_color_selection 9E1B1E --bold --background=1A1B1E
+set -g fish_color_search_match 22C55E --bold --background=1A1B1E
+set -g fish_color_selection 1A9E4A --bold --background=1A1B1E
 
 ## Status / user
-set -g fish_color_status E61C24
-set -g fish_color_user 9E1B1E
+set -g fish_color_status 22C55E
+set -g fish_color_user 1A9E4A
 set -g fish_color_valid_path --underline
 
 ## Pager
@@ -84,7 +84,7 @@ end
 zoxide init fish | source
 
 function fish_prompt
-    set_color red
+    set_color green
     printf '[%s@%s %s]$ ' $USER (hostname -s) (prompt_pwd)
     set_color normal
 end

@@ -1,19 +1,19 @@
 * {
 	background:						#1A1B1EE0;
 	background-full:				#1A1B1EFF;
-	foreground:						#E61C24;
-	accent:							#E61C24;
+	foreground:						#22C55E;
+	accent:							#22C55E;
 	background-tb:					#1A1B1E;
-	border-tb:						#E61C24;
+	border-tb:						#22C55E;
 	background-none:				#1A1B1E;
-	selected:						linear-gradient(to right, #E61C2430, #E61C2430);
-	button:							linear-gradient(#E61C2430);
-	button-selected:				linear-gradient(#E61C2430);
-	active:							linear-gradient(to right, #9E1B1EFF, #E61C24FF);
-	urgent:							#E61C24;
+	selected:						linear-gradient(to right, #22C55E30, #22C55E30);
+	button:							linear-gradient(#22C55E30);
+	button-selected:				linear-gradient(#22C55E30);
+	active:							linear-gradient(to right, #1A9E4AFF, #22C55EFF);
+	urgent:							#22C55E;
 	font:							"Hack Nerd Font 12";
 	gap:							8px;
 	radius:							0px;
 	no0:							#0D0E10;
-	re0:							#E61C24;
+	re0:							#22C55E;
 }
