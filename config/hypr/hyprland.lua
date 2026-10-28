@@ -36,10 +36,19 @@ hl.monitor({
 ---- ENVIRONMENT ----
 ---------------------
 
--- Keep Aquamarine on the real VMware GPU. A stray virtual DRM device (vkms,
--- etc.) has no connected display and would otherwise be picked up as a
--- primary output, leaving Hyprland on a black screen.
-hl.env("AQ_DRM_DEVICES", "/dev/dri/card0")
+-- VMware guests: pin Aquamarine to the SVGA adapter. On bare metal we leave
+-- device selection to Aquamarine, which handles hybrid laptops correctly.
+local function on_vmware()
+    local f = io.open("/sys/class/dmi/id/sys_vendor", "r")
+    if not f then return false end
+    local vendor = f:read("l") or ""
+    f:close()
+    return vendor:find("VMware") ~= nil
+end
+
+if on_vmware() then
+    hl.env("AQ_DRM_DEVICES", "/dev/dri/card0")
+end
 
 hl.env("XCURSOR_THEME", "Bibata-Modern-Ice")
 hl.env("XCURSOR_SIZE", "24")

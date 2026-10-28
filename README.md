@@ -31,6 +31,7 @@ config/qt5ct qt6ct          Qt colours (templates rendered at install)
 config/gtk-2.0/gtkrc-2.0    legacy GTK2 apps
 theme/Zazzu-Red             complete GTK2/3/4 theme (black + red)
 sddm/                       dark-red variant of sddm-astronaut-theme
+patches/                    opt-in fixes for specific environments (VMware)
 ```
 
 ## Install
@@ -129,6 +130,14 @@ script and re-run.
   screen` and Hyprland aborts in `CBackend::create()`. In that case add
   `hl.env("MESA_LOADER_DRIVER_OVERRIDE", "kms_swrast")` to `hyprland.lua` to
   fall back to llvmpipe; GBM/dmabuf scanout keeps working.
+- **VMware + GPU terminals crash** (`wl_surface.attach: invalid arguments`,
+  kitty/alacritty `SIGSEGV`, `drmCloseBufferHandle failed` in the log):
+  `vmwgfx` hands Hyprland TTM surface handles that `drmCloseBufferHandle()`
+  cannot release, so Hyprland rejects every DMA-BUF from GPU clients.
+  Stock Hyprland is broken in this VM; build the patched one with
+  `patches/vmware-hyprland-dmabuf/apply.sh`. Bare-metal installs do not need
+  it. Only `AQ_DRM_DEVICES` is VM-specific in `hyprland.lua`, and it is set
+  only when DMI reports VMware, so the config stays portable.
 - **Waybar** starts from Hyprland's autostart; reload it with
   `pkill waybar; waybar &` or just `SUPER+SHIFT+C`.
 - **Qt apps**: `QT_QPA_PLATFORMTHEME=qt6ct` is set in `hyprland.lua`. Qt5-only
