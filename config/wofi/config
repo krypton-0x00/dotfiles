@@ -1,0 +1,16 @@
+show=drun
+prompt=run
+width=620
+height=420
+location=center
+anchor=center
+allow_images=true
+image_size=24
+gtk_dark=true
+term=kitty -e
+matching=multi
+hide_scroll=false
+no_actions=true
+insensitive=false
+cache_file=~/.cache/wofi-drun
+display_generic=true

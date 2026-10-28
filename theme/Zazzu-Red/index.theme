@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=Zazzu-Red
+Comment=Dark red on black theme for zazzu
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+GtkTheme=Zazzu-Red
+MetacityTheme=Zazzu-Red
+IconTheme=Papirus-Dark
+CursorTheme=Bibata-Modern-Ice
+ButtonLayout=close,minimize,maximize:menu

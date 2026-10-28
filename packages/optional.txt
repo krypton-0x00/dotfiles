@@ -1,0 +1,8 @@
+# Zazzu dotfiles :: optional packages
+# Only needed to regenerate art or theme the login screen.
+
+# login screen (required by sddm/install-sddm.sh)
+sddm-astronaut-theme
+
+# source theme for scripts/build-theme.py
+matrix-gtk-theme

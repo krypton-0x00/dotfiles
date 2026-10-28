@@ -1,0 +1,4 @@
+# Zazzu dotfiles :: AUR / chaotic-aur packages
+# On Athena OS these resolve from chaotic-aur; elsewhere yay builds them.
+bibata-cursor-theme
+papirus-folders

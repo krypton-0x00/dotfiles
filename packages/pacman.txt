@@ -1,0 +1,70 @@
+# Zazzu dotfiles :: official Arch / Athena repositories
+# Install with:  sudo pacman -S --needed $(cat packages/pacman.txt)
+
+# ── Wayland / Hyprland ───────────────────────────────────────────────────
+hyprland
+xdg-desktop-portal
+xdg-desktop-portal-gtk
+xdg-desktop-portal-hyprland
+xorg-xwayland
+qt5-wayland
+qt6-wayland
+
+# ── desktop shell ────────────────────────────────────────────────────────
+waybar
+wofi
+dunst
+hyprpaper
+hypridle
+hyprlock
+
+# ── clipboard / screenshots ──────────────────────────────────────────────
+wl-clipboard
+cliphist
+wl-clip-persist
+grim
+slurp
+swappy
+hyprpicker
+
+# ── desktop integration ──────────────────────────────────────────────────
+polkit-gnome
+network-manager-applet
+blueman
+bluez-utils
+playerctl
+brightnessctl
+pamixer
+pavucontrol
+udiskie
+thunar
+thunar-volman
+gvfs
+gvfs-smb
+xdg-utils
+libnotify
+
+# ── terminals / shell ────────────────────────────────────────────────────
+kitty
+alacritty
+fish
+
+# ── fonts ────────────────────────────────────────────────────────────────
+ttf-jetbrains-mono-nerd
+ttf-firacode-nerd
+noto-fonts
+noto-fonts-emoji
+
+# ── theming ──────────────────────────────────────────────────────────────
+papirus-icon-theme
+nwg-look
+qt5ct
+qt6ct
+
+# ── utilities ────────────────────────────────────────────────────────────
+btop
+fastfetch
+jq
+imagemagick
+python-pillow
+firefox

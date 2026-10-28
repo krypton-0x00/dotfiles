@@ -1,0 +1,115 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 28,
+    "spacing": 0,
+    "margin-top": 0,
+    "margin-bottom": 0,
+    "margin-left": 0,
+    "margin-right": 0,
+    "modules-left": [
+        "custom/logo",
+        "hyprland/workspaces",
+        "hyprland/window"
+    ],
+    "modules-center": [],
+    "modules-right": [
+        "cpu",
+        "memory",
+        "disk",
+        "network",
+        "pulseaudio",
+        "clock",
+        "tray",
+        "custom/power"
+    ],
+
+    "custom/logo": {
+        "format": " ◤ ",
+        "tooltip": false
+    },
+
+    "hyprland/workspaces": {
+        "format": "{id}",
+        "on-click": "activate",
+        "on-click-right": "close",
+        "all-outputs": true,
+        "sort-by-number": true,
+        "show-special": false,
+        "persistent-workspaces": {
+            "*": 9
+        }
+    },
+
+    "hyprland/window": {
+        "format": " {title} ",
+        "max-length": 72,
+        "separate-outputs": true,
+        "tooltip": false,
+        "rewrite": {
+            "": "~"
+        }
+    },
+
+    "cpu": {
+        "interval": 3,
+        "format": "CPU {usage}%",
+        "tooltip": true
+    },
+
+    "memory": {
+        "interval": 4,
+        "format": "MEM {percentage}%",
+        "tooltip": true,
+        "tooltip-format": "RAM {used} / {total}\nSwap {swapUsed} / {swapTotal}"
+    },
+
+    "disk": {
+        "interval": 30,
+        "format": "DSK {percentage_used}%",
+        "path": "/",
+        "tooltip": true,
+        "tooltip-format": "{used} / {total} ({percentage_used}%)"
+    },
+
+    "network": {
+        "interval": 3,
+        "format-wifi": "NET {signalStrength}%",
+        "format-ethernet": "NET {ipaddr}",
+        "format-disconnected": "NET --",
+        "tooltip-format-wifi": "{essid}\n{ipaddr}\n{signalStrength}%",
+        "tooltip-format-ethernet": "{ifname}\n{ipaddr}",
+        "tooltip-format-disconnected": "offline",
+        "max-length": 22
+    },
+
+    "pulseaudio": {
+        "format": "VOL {volume}%",
+        "format-muted": "VOL MUTE",
+        "format-source": "MIC {volume}%",
+        "format-source-muted": "MIC MUTE",
+        "on-click": "pavucontrol",
+        "on-click-right": "pamixer -t",
+        "on-scroll-up": "pamixer -i 2",
+        "on-scroll-down": "pamixer -d 2",
+        "tooltip": false
+    },
+
+    "clock": {
+        "interval": 10,
+        "format": "{:%a %d %b  %H:%M}",
+        "tooltip-format": "<tt>{calendar}</tt>"
+    },
+
+    "tray": {
+        "icon-size": 14,
+        "spacing": 6,
+        "show-passive-items": false
+    },
+
+    "custom/power": {
+        "format": " ⏻ ",
+        "tooltip": "power menu",
+        "on-click": "~/.config/hypr/scripts/power-menu.sh"
+    }
+}

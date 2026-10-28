@@ -1,0 +1,76 @@
+# Zazzu :: Alacritty (dark red on black)
+
+[general]
+import = []
+
+[env]
+TERM = "xterm-256color"
+
+[window]
+padding = { x = 10, y = 10 }
+decorations = "none"
+opacity = 1.0
+dynamic_title = true
+title = "kitty"
+startup_mode = "Windowed"
+
+[font]
+size = 11.5
+
+[font.normal]
+family = "JetBrainsMono Nerd Font"
+style = "Regular"
+
+[font.bold]
+family = "JetBrainsMono Nerd Font"
+style = "Bold"
+
+[font.italic]
+family = "JetBrainsMono Nerd Font"
+style = "Italic"
+
+[font.offset]
+x = 0
+y = 1
+
+[colors.primary]
+background = "#08080a"
+foreground = "#d7d7de"
+dim_foreground = "#8b8b96"
+bright_foreground = "#f0f0f4"
+
+[colors.cursor]
+text = "#08080a"
+cursor = "#c1121f"
+
+[colors.vi_mode_cursor]
+text = "#08080a"
+cursor = "#e53946"
+
+[colors.selection]
+text = "#08080a"
+background = "#c1121f"
+
+[colors.normal]
+black = "#0f0f12"
+red = "#c1121f"
+green = "#6a8f5a"
+yellow = "#b5894b"
+blue = "#5f7f9f"
+magenta = "#9a6a8f"
+cyan = "#5f8f8a"
+white = "#c7c7cf"
+
+[colors.bright]
+black = "#3a3a44"
+red = "#e53946"
+green = "#8fb57a"
+yellow = "#d6a86a"
+blue = "#8aa9c9"
+magenta = "#c08bb5"
+cyan = "#86b5ae"
+white = "#f0f0f4"
+
+[terminal.shell]
+program = "/usr/bin/fish"
+args = []

@@ -1,0 +1,9 @@
+# Zazzu :: GTK2 theme (legacy apps)
+gtk-theme-name = "Zazzu-Red"
+gtk-icon-theme-name = "Papirus-Dark"
+gtk-font-name = "JetBrainsMono Nerd Font 10"
+gtk-cursor-theme-name = "Bibata-Modern-Ice"
+gtk-cursor-theme-size = 24
+gtk-toolbar-style = GTK_TOOLBAR_BOTH_HORIZ
+gtk-menu-images = 1
+gtk-button-images = 1

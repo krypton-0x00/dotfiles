@@ -1,0 +1,71 @@
+[global]
+    monitor = 0
+    follow = none
+    width = 360
+    height = (0, 150)
+    origin = top-right
+    offset = (8, 36)
+    scale = 0
+    notification_limit = 5
+    progress_bar = true
+    progress_bar_height = 3
+    progress_bar_frame_width = 0
+    progress_bar_min_width = 150
+    progress_bar_max_width = 360
+    indicate_hidden = false
+    transparency = 0
+    separator_height = 1
+    padding = 10
+    horizontal_padding = 12
+    text_icon_padding = 0
+    frame_width = 1
+    frame_color = "#c1121f"
+    gap_size = 6
+    separator_color = "#2a2a31"
+    sort = true
+    idle_threshold = 0
+    font = JetBrainsMono Nerd Font 10
+    markup = full
+    format = "<b>%s</b>\n%b"
+    alignment = left
+    vertical_alignment = center
+    show_age_threshold = 60
+    word_wrap = true
+    ellipsize = middle
+    ignore_newline = false
+    stack_duplicates = true
+    hide_duplicate_count = false
+    show_indicators = true
+    icon_position = left
+    min_icon_size = 24
+    max_icon_size = 48
+    icon_path = /usr/share/icons/Papirus-Dark/24x24/actions:/usr/share/icons/Papirus-Dark/24x24/apps:/usr/share/icons/Papirus-Dark/24x24/status
+    enable_recursive_icon_lookup = true
+    icon_theme = Papirus-Dark
+    enable_posix_regex = true
+    sticky_history = true
+    history_length = 40
+    browser = firefox
+    dmenu = wofi --dmenu --prompt dunst
+    mouse_left_click = do_action, close_current
+    mouse_middle_click = close_all
+    mouse_right_click = close_current
+    highlight = "#e53946"
+
+[urgency_low]
+    background = "#0f0f12"
+    foreground = "#8b8b96"
+    frame_color = "#2a2a31"
+    timeout = 4
+
+[urgency_normal]
+    background = "#0f0f12"
+    foreground = "#d7d7de"
+    frame_color = "#c1121f"
+    timeout = 6
+
+[urgency_critical]
+    background = "#160407"
+    foreground = "#ffffff"
+    frame_color = "#e53946"
+    timeout = 0

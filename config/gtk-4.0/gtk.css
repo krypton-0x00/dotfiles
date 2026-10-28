@@ -1,0 +1,24 @@
+/* Zazzu :: libadwaita / GTK4 accent overrides (dark red on black) */
+
+@define-color accent_color        #c1121f;
+@define-color accent_bg_color     #c1121f;
+@define-color accent_fg_color     #08080a;
+@define-color window_bg_color     #08080a;
+@define-color window_fg_color     #d7d7de;
+@define-color view_bg_color       #0f0f12;
+@define-color view_fg_color       #d7d7de;
+@define-color headerbar_bg_color  #0f0f12;
+@define-color headerbar_fg_color  #d7d7de;
+@define-color sidebar_bg_color    #0f0f12;
+@define-color sidebar_fg_color    #d7d7de;
+@define-color card_bg_color       #15151a;
+@define-color card_fg_color       #d7d7de;
+@define-color popover_bg_color    #0f0f12;
+@define-color popover_fg_color    #d7d7de;
+@define-color dialog_bg_color     #0f0f12;
+@define-color dialog_fg_color     #d7d7de;
+@define-color destructive_color   #e53946;
+@define-color success_color       #6a8f5a;
+@define-color warning_color       #b5894b;
+@define-color error_color         #e53946;
+@define-color borders             #2a2a31;
