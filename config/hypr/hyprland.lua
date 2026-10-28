@@ -1,6 +1,7 @@
 -- ============================================================================
 --  Zazzu :: Hyprland 0.56+ Lua configuration
 --  Dark red on black · dwm-style master layout · VM friendly (no blur/shadows)
+--  Editor support: .luarc.json points LuaLS at /usr/share/hypr/stubs
 -- ============================================================================
 
 local home    = os.getenv("HOME")
