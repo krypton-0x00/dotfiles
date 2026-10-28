@@ -43,6 +43,11 @@ local col = {
 -- working. Remove this line if the VM is ever given 3D acceleration.
 hl.env("MESA_LOADER_DRIVER_OVERRIDE", "kms_swrast")
 
+-- Keep Aquamarine on the real VMware GPU. A stray virtual DRM device (vkms,
+-- etc.) has no connected display and would otherwise be picked up as a
+-- primary output, leaving Hyprland on a black screen.
+hl.env("AQ_DRM_DEVICES", "/dev/dri/card0")
+
 hl.env("XCURSOR_THEME", "Bibata-Modern-Ice")
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
