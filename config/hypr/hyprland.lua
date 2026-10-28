@@ -24,17 +24,24 @@ local col = {
 ---- MONITORS ----
 ------------------
 
-hl.monitor({
-    output   = "",
-    mode     = "preferred",
-    position = "auto",
-    scale    = 1,
-})
+-- hl.monitor({
+--     output   = "",
+--     mode     = "preferred",
+--     position = "auto",
+--     scale    = 1,
+-- })
 
 
 ---------------------
 ---- ENVIRONMENT ----
 ---------------------
+
+-- VMware SVGA II on this host has 3D acceleration disabled. Mesa otherwise
+-- picks the vmwgfx DRM/EGL device, eglInitialize fails with "DRI2: failed to
+-- create screen", and Hyprland aborts in CBackend::create(). kms_swrast makes
+-- Mesa use llvmpipe on the same DRM device while GBM/dmabuf scanout keeps
+-- working. Remove this line if the VM is ever given 3D acceleration.
+hl.env("MESA_LOADER_DRIVER_OVERRIDE", "kms_swrast")
 
 hl.env("XCURSOR_THEME", "Bibata-Modern-Ice")
 hl.env("XCURSOR_SIZE", "24")
