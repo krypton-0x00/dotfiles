@@ -123,14 +123,12 @@ script and re-run.
   `sudo ~/dotfiles/sddm/install-sddm.sh` after upgrading the theme package.
 - **VM performance**: animations, blur, shadows and hardware cursors are off.
   If Hyprland feels slow, check that `misc:vfr` is on and avoid 4K outputs.
-- **VMware without 3D acceleration**: this VM's SVGA II adapter has 3D
-  disabled, so `hyprland.lua` sets
-  `MESA_LOADER_DRIVER_OVERRIDE=kms_swrast`. Without it, Mesa picks the
-  vmwgfx EGL device, `eglInitialize` fails with `DRI2: failed to create
-  screen`, and Hyprland aborts in `CBackend::create()`. The override keeps
-  llvmpipe software rendering on the same DRM device and GBM/dmabuf scanout
-  still works. If 3D acceleration is enabled in the VM settings later, remove
-  that `hl.env` line to use the hardware driver.
+- **VMware 3D acceleration**: this VM now has 3D enabled, so Hyprland uses
+  the `vmwgfx`/`SVGA3D` driver (GLES 3.1). If 3D acceleration is disabled
+  again, Mesa's explicit EGL device init fails with `DRI2: failed to create
+  screen` and Hyprland aborts in `CBackend::create()`. In that case add
+  `hl.env("MESA_LOADER_DRIVER_OVERRIDE", "kms_swrast")` to `hyprland.lua` to
+  fall back to llvmpipe; GBM/dmabuf scanout keeps working.
 - **Waybar** starts from Hyprland's autostart; reload it with
   `pkill waybar; waybar &` or just `SUPER+SHIFT+C`.
 - **Qt apps**: `QT_QPA_PLATFORMTHEME=qt6ct` is set in `hyprland.lua`. Qt5-only

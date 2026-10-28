@@ -209,9 +209,9 @@ cat <<EOF
   2. First launch: SUPER+Return = kitty, SUPER+R = launcher, SUPER+SHIFT+Q = power menu.
   3. Validate the config any time:  Hyprland --verify-config -c ~/.config/hypr/hyprland.lua
 
-  This VMware guest has no 3D acceleration, so Hyprland runs on llvmpipe
-  (MESA_LOADER_DRIVER_OVERRIDE=kms_swrast in hyprland.lua). Remove that
-  hl.env line after enabling 3D acceleration in the VM settings.
+  VMware 3D acceleration is enabled, so Hyprland uses the SVGA3D driver.
+  If 3D is disabled later, add MESA_LOADER_DRIVER_OVERRIDE=kms_swrast to
+  hyprland.lua to fall back to llvmpipe instead of crashing at startup.
 
   If anything looks off, the previous files are in:
     $BACKUP
