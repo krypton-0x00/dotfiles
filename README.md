@@ -81,10 +81,10 @@ Requirements: Arch-based distro, `sddm-astronaut-theme` for the login screen
 | `SUPER+I` / `SUPER+D` | add / remove master |
 | `SUPER+ALT+M` | swap with master (auto) |
 | `SUPER+SHIFT+O/I` | next / previous orientation |
-| `SUPER+1..0` / `SUPER+SHIFT+1..0` | go to / move window to workspace |
+| `SUPER+1..0` / `SUPER+SHIFT+1..0` | go to / move window to workspace 1–10 on the focused monitor |
 | `SUPER+S` / `SUPER+SHIFT+S` | scratchpad / send to scratchpad |
 | `SUPER+SHIFT+W` | wallpaper picker |
-| `SUPER+mouse wheel` | cycle workspaces |
+| `SUPER+mouse wheel` | cycle the focused monitor's workspaces |
 | `Print` | region screenshot (copy + save) |
 | `SHIFT+Print` | full screenshot |
 | `SUPER+Print` / `SUPER+SHIFT+Print` | window / swappy annotate |
@@ -100,8 +100,21 @@ Hyprland runs the `master` layout with `new_on_top = true`, `mfact = 0.55`,
 behaviour to dwm's tile stack while still allowing manual resizing with
 `SUPER` + right-drag.
 
-Workspaces are named in the bar: `main`, `web`, `lab`, `notes`, `media`.
+### Workspaces
+
+Every monitor gets its own ten workspaces, and both bars always read `1`–`10`.
+Hyprland numbers workspaces globally, so each output owns a block of ids
+(`eDP-1` → 1–10, `HDMI-A-2` → 11–20; see `ws_blocks` in `hyprland.lua`) and
+Waybar relabels the block back to 1–10 on that output's bar. `SUPER+1..0`
+resolves against the monitor that currently has focus, so the same keys always
+drive the bar you are looking at.
+
+Workspaces 1–5 also keep the names `main`, `web`, `lab`, `notes`, `media`.
 The special workspace `scratch` is the scratchpad.
+
+Adding a monitor: give it the next free ten ids in `ws_blocks` (in
+`config/hypr/hyprland.lua`) and the matching `persistent-workspaces` entry plus
+`format-icons` relabeling (in `config/waybar/config.jsonc`).
 
 ## Regenerating art
 

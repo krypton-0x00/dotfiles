@@ -38,9 +38,11 @@ tooltip label {
 #custom-logo {
     color: #c1121f;
     background: #0f0f12;
-    padding: 0 10px;
-    margin: 0 4px 0 0;
-    font-size: 13px;
+    padding: 0 8px;
+    /* keep the block inside the 28px bar instead of bleeding into its edges */
+    margin: 4px 6px 4px 0;
+    font-size: 12px;
+    min-height: 0;
 }
 
 /* ── workspaces / tags ────────────────────────────────────────────────── */

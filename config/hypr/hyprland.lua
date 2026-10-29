@@ -25,11 +25,19 @@ local col = {
 ------------------
 
 hl.monitor({
-    output   = "",
-    mode     = "1920x1080",
+    output   = "eDP-1",
+    mode     = "1920x1080@60",
     position = "auto",
     scale    = 1,
 })
+
+hl.monitor({
+    output   = "HDMI-A-2",
+    mode     = "1920x1080@180",
+    position = "auto",
+    scale    = 1,
+})
+
 
 
 ---------------------
@@ -207,7 +215,7 @@ hl.bind(mod .. " + Return",        hl.dsp.exec_cmd("kitty"))
 hl.bind(mod .. " + O",        hl.dsp.exec_cmd("obsidian"))
 hl.bind(mod .. " + D",        hl.dsp.exec_cmd("discord"))
 hl.bind(mod .. " + ALT + Return",   hl.dsp.exec_cmd("kitty --class floating-term"))
-hl.bind(mod .. " + SHIFT + W",             hl.dsp.exec_cmd("firefox"))
+hl.bind(mod .. " + SHIFT + W",             hl.dsp.exec_cmd("brave"))
 hl.bind(mod .. " + E",             hl.dsp.exec_cmd("thunar"))
 hl.bind(mod .. " + SPACE",             hl.dsp.exec_cmd("wofi --show drun --prompt ' run '"))
 -- hl.bind(mod .. " + SHIFT + R",     hl.dsp.exec_cmd("wofi --show run --prompt ' exec '"))
@@ -257,16 +265,67 @@ hl.bind(mod .. " + SHIFT + right", hl.dsp.window.move({ direction = "right" }))
 hl.bind(mod .. " + SHIFT + up",    hl.dsp.window.move({ direction = "up" }))
 hl.bind(mod .. " + SHIFT + down",  hl.dsp.window.move({ direction = "down" }))
 
--- Workspaces (1-9, 0 = 10) ----------------------------------------------------
-for i = 1, 10 do
-    local key = i % 10
-    hl.bind(mod .. " + " .. key,         hl.dsp.focus({ workspace = i }))
-    hl.bind(mod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
+-- Workspaces ------------------------------------------------------------------
+-- Hyprland numbers workspaces globally, so each output owns its own block of
+-- ten ids (see ws_blocks below). Waybar relabels every block back to 1-10 (see
+-- waybar/config.jsonc), so both bars look identical while SUPER+1..0 always
+-- targets the monitor that has focus.
+local ws_per_output = 10
+local ws_blocks = {                    -- first workspace id of each output
+    ["eDP-1"]    = 1,
+    ["HDMI-A-2"] = 11,
+}
+
+-- Base workspace id (0 for the 1-10 block) of an output.
+local function output_base(name)
+    local first = ws_blocks[name]
+    if first then return first - 1 end
+
+    -- Output not listed above yet: hand out the first block nobody uses.
+    local used = {}
+    for _, monitor in ipairs(hl.get_monitors()) do
+        local known = ws_blocks[monitor.name]
+        if known then used[known - 1] = true end
+    end
+    local base = 0
+    while used[base] do base = base + ws_per_output end
+    return base
 end
+
+-- Workspace id for slot 1-10 on the focused monitor.
+local function workspace_id(slot)
+    local monitor = hl.get_active_monitor()
+    return (monitor and output_base(monitor.name) or 0) + slot
+end
+
+for slot = 1, ws_per_output do
+    local key = slot % 10
+    hl.bind(mod .. " + " .. key, function()
+        hl.dispatch(hl.dsp.focus({ workspace = workspace_id(slot) }))
+    end)
+    hl.bind(mod .. " + SHIFT + " .. key, function()
+        hl.dispatch(hl.dsp.window.move({ workspace = workspace_id(slot) }))
+    end)
+end
+
+-- Cycle through the focused monitor's own ten workspaces.
+local function cycle_workspace(step)
+    local monitor   = hl.get_active_monitor()
+    local workspace = hl.get_active_workspace()
+    if not monitor or not workspace then return end
+
+    local base = output_base(monitor.name)
+    local slot = workspace.id - base
+    if slot < 1 or slot > ws_per_output then slot = 1 end
+    slot = ((slot - 1 + step) % ws_per_output) + 1
+
+    hl.dispatch(hl.dsp.focus({ workspace = base + slot }))
+end
+
 hl.bind(mod .. " + SHIFT + S",     hl.dsp.window.move({ workspace = "special:scratch" }))
 hl.bind(mod .. " + S",             hl.dsp.workspace.toggle_special("scratch"))
-hl.bind(mod .. " + mouse_down",    hl.dsp.focus({ workspace = "e+1" }))
-hl.bind(mod .. " + mouse_up",      hl.dsp.focus({ workspace = "e-1" }))
+hl.bind(mod .. " + mouse_down",    function() cycle_workspace(1) end)
+hl.bind(mod .. " + mouse_up",      function() cycle_workspace(-1) end)
 
 -- Mouse -----------------------------------------------------------------------
 hl.bind(mod .. " + mouse:272", hl.dsp.window.drag(),   { mouse = true })
@@ -366,6 +425,14 @@ hl.workspace_rule({
     gaps_out  = 6,
     gaps_in   = 3,
 })
+
+-- Pin every output's block of ten workspaces to that output, so a workspace
+-- is always (re)created on the side it belongs to.
+for output, first in pairs(ws_blocks) do
+    for slot = 0, ws_per_output - 1 do
+        hl.workspace_rule({ workspace = tostring(first + slot), monitor = output })
+    end
+end
 
 -- Open the analyser stack on workspace 1 and comms on 2 -----------------------
 hl.workspace_rule({ workspace = "1", default_name = "main" })

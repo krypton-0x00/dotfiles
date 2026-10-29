@@ -30,14 +30,43 @@
     },
 
     "hyprland/workspaces": {
-        "format": "{id}",
+        // Each bar is tied to one output. Hyprland assigns a block of ten
+        // workspaces per output (see hyprland.lua), and this module relabels
+        // the block back to 1-10 so both bars always read 1..10.
+        "format": "{icon}",
+        "format-icons": {
+            // Workspaces that still carry the old names from hyprland.lua.
+            "main": "1",
+            "web": "2",
+            "lab": "3",
+            "notes": "4",
+            "media": "5",
+            // Second output owns 11-20; draw them as 1-10.
+            "11": "1",
+            "12": "2",
+            "13": "3",
+            "14": "4",
+            "15": "5",
+            "16": "6",
+            "17": "7",
+            "18": "8",
+            "19": "9",
+            "20": "10"
+        },
         "on-click": "activate",
         "on-click-right": "close",
-        "all-outputs": true,
-        "sort-by-number": true,
+        "all-outputs": false,
+        "sort-by": "id",
         "show-special": false,
+        // Hide anything outside the two blocks (stale workspaces from older
+        // configs), so no bar shows 21+.
+        "ignore-workspaces": ["^(2[1-9]|[3-9][0-9]|[1-9][0-9]{2,})$"],
+        // One explicit block per output: a number here would make waybar
+        // invent ids as monitor_id * count + i + 1, which is what put 10-18
+        // on the second bar.
         "persistent-workspaces": {
-            "*": 9
+            "eDP-1": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+            "HDMI-A-2": [11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
         }
     },
 
