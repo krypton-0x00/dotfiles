@@ -68,3 +68,16 @@ jq
 imagemagick
 python-pillow
 firefox
+
+# ── editors / language toolchains ────────────────────────────────────────
+# Neovim config in config/nvim targets Rust, C, C++ and Python.
+neovim
+git
+nodejs
+npm
+python
+rustup
+clang          # clangd + clang-format + clang-tidy
+gcc
+tree-sitter    # runtime lib used by the nvim parsers
+

@@ -226,7 +226,7 @@ hl.bind(mod .. " + SHIFT + V",     hl.dsp.exec_cmd("pavucontrol"))
 -- Window management -----------------------------------------------------------
 hl.bind(mod .. " + Q",             hl.dsp.window.close())
 hl.bind(mod .. " + SHIFT + Q",     hl.dsp.exec_cmd(scripts .. "/power-menu.sh"))
-hl.bind(mod .. " + F",             hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle" }))
+-- hl.bind(mod .. " + F",             hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle" }))
 -- hl.bind(mod .. " + SHIFT + F",     hl.dsp.window.fullscreen({ mode = "maximized",  action = "toggle" }))
 hl.bind(mod .. " + SHIFT + F",         hl.dsp.window.float({ action = "toggle" }))
 -- hl.bind(mod .. " + P",             hl.dsp.window.pseudo())
@@ -322,8 +322,8 @@ local function cycle_workspace(step)
     hl.dispatch(hl.dsp.focus({ workspace = base + slot }))
 end
 
-hl.bind(mod .. " + SHIFT + S",     hl.dsp.window.move({ workspace = "special:scratch" }))
-hl.bind(mod .. " + S",             hl.dsp.workspace.toggle_special("scratch"))
+-- hl.bind(mod .. " + SHIFT + S",     hl.dsp.window.move({ workspace = "special:scratch" }))
+-- hl.bind(mod .. " + S",             hl.dsp.workspace.toggle_special("scratch"))
 hl.bind(mod .. " + mouse_down",    function() cycle_workspace(1) end)
 hl.bind(mod .. " + mouse_up",      function() cycle_workspace(-1) end)
 
@@ -332,7 +332,7 @@ hl.bind(mod .. " + mouse:272", hl.dsp.window.drag(),   { mouse = true })
 hl.bind(mod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 -- Screenshots -----------------------------------------------------------------
-hl.bind("Print",              hl.dsp.exec_cmd(scripts .. "/screenshot.sh region"))
+hl.bind(mod .. "+ SHIFT + S",              hl.dsp.exec_cmd(scripts .. "/screenshot.sh region"))
 hl.bind("SHIFT + Print",      hl.dsp.exec_cmd(scripts .. "/screenshot.sh full"))
 hl.bind(mod .. " + Print",    hl.dsp.exec_cmd(scripts .. "/screenshot.sh window"))
 hl.bind(mod .. " + SHIFT + Print", hl.dsp.exec_cmd(scripts .. "/screenshot.sh swappy"))

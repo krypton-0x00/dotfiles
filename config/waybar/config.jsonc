@@ -19,6 +19,7 @@
         "disk",
         "network",
         "pulseaudio",
+        "clock#date",
         "clock",
         "tray",
         "custom/power"
@@ -82,30 +83,42 @@
 
     "cpu": {
         "interval": 3,
-        "format": "CPU {usage}%",
+        "format": "CPU <b>{usage}%</b>",
+        "states": {
+            "warning": 70,
+            "critical": 90
+        },
         "tooltip": true
     },
 
     "memory": {
         "interval": 4,
-        "format": "MEM {percentage}%",
+        "format": "MEM <b>{percentage}%</b>",
+        "states": {
+            "warning": 75,
+            "critical": 90
+        },
         "tooltip": true,
         "tooltip-format": "RAM {used} / {total}\nSwap {swapUsed} / {swapTotal}"
     },
 
     "disk": {
         "interval": 30,
-        "format": "DSK {percentage_used}%",
+        "format": "DSK <b>{percentage_used}%</b>",
         "path": "/",
+        "states": {
+            "warning": 80,
+            "critical": 92
+        },
         "tooltip": true,
         "tooltip-format": "{used} / {total} ({percentage_used}%)"
     },
 
     "network": {
         "interval": 3,
-        "format-wifi": "NET {signalStrength}%",
-        "format-ethernet": "NET {ipaddr}",
-        "format-disconnected": "NET --",
+        "format-wifi": "NET <b>{signalStrength}%</b>",
+        "format-ethernet": "NET <b>{ipaddr}</b>",
+        "format-disconnected": "NET <b>--</b>",
         "tooltip-format-wifi": "{essid}\n{ipaddr}\n{signalStrength}%",
         "tooltip-format-ethernet": "{ifname}\n{ipaddr}",
         "tooltip-format-disconnected": "offline",
@@ -113,10 +126,10 @@
     },
 
     "pulseaudio": {
-        "format": "VOL {volume}%",
-        "format-muted": "VOL MUTE",
-        "format-source": "MIC {volume}%",
-        "format-source-muted": "MIC MUTE",
+        "format": "VOL <b>{volume}%</b>",
+        "format-muted": "VOL <b>MUTE</b>",
+        "format-source": "MIC <b>{volume}%</b>",
+        "format-source-muted": "MIC <b>MUTE</b>",
         "on-click": "pavucontrol",
         "on-click-right": "pamixer -t",
         "on-scroll-up": "pamixer -i 2",
@@ -126,7 +139,13 @@
 
     "clock": {
         "interval": 10,
-        "format": "{:%a %d %b  %H:%M}",
+        "format": "{:%H:%M}",
+        "tooltip-format": "<tt>{calendar}</tt>"
+    },
+
+    "clock#date": {
+        "interval": 30,
+        "format": "{:%a %d %b}",
         "tooltip-format": "<tt>{calendar}</tt>"
     },
 

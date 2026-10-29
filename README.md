@@ -26,6 +26,7 @@ config/dunst/               notifications
 config/kitty/ alacritty/    terminals
 config/btop/ fastfetch/     system views
 config/fish/                shell config + prompt
+config/nvim/                Neovim: zazzu colorscheme, flat statusline, LSP
 config/gtk-3.0 gtk-4.0      GTK settings + libadwaita accent overrides
 config/qt5ct qt6ct          Qt colours (templates rendered at install)
 config/gtk-2.0/gtkrc-2.0    legacy GTK2 apps
@@ -49,7 +50,9 @@ cd ~/dotfiles
 3. Symlink config trees into `~/.config` and put `Zazzu-Red` in `~/.themes`.
 4. Render the Qt5ct/Qt6ct templates, apply GTK/icon/cursor settings, recolour
    Papirus folders red.
-5. Add the dark-red SDDM variant and preselect Hyprland (XFCE stays selectable).
+5. Install the user-level Neovim tooling (pyright, tree-sitter, stylua, ruff)
+   plus the treesitter parsers under `~/.local` and `~/.local/share/nvim`.
+6. Add the dark-red SDDM variant and preselect Hyprland (XFCE stays selectable).
 
 Flags: `--no-packages` / `--config-only`, `--no-sddm`, `--keep-session`, `--help`.
 
@@ -115,6 +118,46 @@ The special workspace `scratch` is the scratchpad.
 Adding a monitor: give it the next free ten ids in `ws_blocks` (in
 `config/hypr/hyprland.lua`) and the matching `persistent-workspaces` entry plus
 `format-icons` relabeling (in `config/waybar/config.jsonc`).
+
+## Editor
+
+`config/nvim` is a small, self-contained Neovim config (lazy.nvim, ~10 plugins)
+themed with the same palette as the bar: `zazzu` colorscheme, flat dwm-style
+statusline, no icons in the UI chrome. It is symlinked to `~/.config/nvim` by
+`install.sh`.
+
+Out of the box it speaks **Rust, C, C++ and Python**:
+
+| Language | LSP | Format on save | Parser |
+| --- | --- | --- | --- |
+| Rust | `rust-analyzer` | `rustfmt` | `rust` |
+| C / C++ | `clangd` | `clang-format` | `c`, `cpp` |
+| Python | `pyright` | `ruff` (or `black`) | `python` |
+| Lua (config) | – | `stylua` | `lua` |
+
+The system half comes from pacman (`rustup`, `clang`, `python`, `nodejs`);
+`pyright`, `tree-sitter`, `stylua` and `ruff` are installed per-user into
+`~/.local/bin` by `install.sh`, so nothing needs root. Servers that are missing
+are skipped with a notification instead of breaking startup, and autosave
+formatting only runs for Python when a formatter is actually present.
+
+Keys (leader is `Space`):
+
+| Key | Action |
+| --- | --- |
+| `<leader>ff` / `<leader>fg` | find files / grep project (telescope) |
+| `<leader>fb` / `<leader>fh` / `<leader>fd` | buffers / help tags / diagnostics |
+| `<leader>e` / `<leader>o` | toggle / focus the file tree |
+| `gd` `gD` `gi` `gt` `gr` | LSP jump to definition / declaration / impl / type / refs |
+| `K` | hover documentation |
+| `<leader>rn` / `<leader>ca` | rename / code action |
+| `[d` / `]d` | previous / next diagnostic |
+| `<leader>fm` | format buffer |
+| `]c` / `[c` | next / previous git hunk |
+| `<leader>gs` / `<leader>gr` / `<leader>gp` | stage / reset / preview hunk |
+| `<leader>tt` / `<leader>tv` | terminal split / vsplit |
+
+`:checkhealth vim.lsp` and `:checkhealth nvim-treesitter` show what is wired up.
 
 ## Regenerating art
 

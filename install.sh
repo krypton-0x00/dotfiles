@@ -106,7 +106,7 @@ deploy_configs() {
     local dir
 
     # Pure-config trees: symlink the whole directory.
-    for dir in hypr waybar wofi dunst kitty alacritty btop fastfetch; do
+    for dir in hypr waybar wofi dunst kitty alacritty btop fastfetch nvim; do
         link_path "$DOTFILES/config/$dir" "$HOME/.config/$dir"
     done
 
@@ -178,11 +178,58 @@ apply_appearance() {
     fi
 }
 
+# ── neovim language tooling ────────────────────────────────────────────────
+# Everything here is installed under $HOME: no sudo, no system packages.
+# The config degrades gracefully when a tool is missing.
+
+install_nvim_tools() {
+    log "Neovim language tooling (user-level)"
+
+    local spec bin pkg
+    if command -v npm >/dev/null 2>&1; then
+        for spec in pyright:pyright tree-sitter:tree-sitter stylua:@johnnymorganz/stylua-bin; do
+            bin="${spec%%:*}"
+            pkg="${spec#*:}"
+            if [ -x "$HOME/.local/bin/$bin" ]; then
+                ok "$bin present"
+            elif npm install -g --prefix "$HOME/.local" --allow-scripts="$pkg" "$pkg" >/dev/null 2>&1; then
+                ok "$pkg -> ~/.local/bin/$bin"
+            else
+                warn "could not install $pkg (offline?) — nvim skips it"
+            fi
+        done
+    else
+        warn "npm missing — pyright / tree-sitter / stylua not installed"
+    fi
+
+    if [ -x "$HOME/.local/bin/ruff" ]; then
+        ok "ruff present"
+    elif command -v pipx >/dev/null 2>&1 && pipx install ruff >/dev/null 2>&1; then
+        ok "ruff -> ~/.local/bin/ruff"
+    else
+        warn "ruff missing — Python format-on-save stays disabled"
+    fi
+
+    if command -v nvim >/dev/null 2>&1; then
+        log "installing treesitter parsers (rust, c, cpp, python, …)"
+        if nvim --headless -c \
+            'lua require("nvim-treesitter").install({"rust","c","cpp","python","lua","vim","vimdoc","query","markdown","markdown_inline","toml","json","yaml","bash"}):wait(900000)' \
+            -c q >/dev/null 2>&1; then
+            ok "treesitter parsers ready"
+        else
+            warn "parser install failed — run :TSInstall inside nvim later"
+        fi
+    else
+        warn "nvim missing — run ./install.sh --no-packages after installing neovim"
+    fi
+}
+
 # ── main ───────────────────────────────────────────────────────────────────
 
 (($DO_PACKAGES)) && install_packages
 
 deploy_configs
+install_nvim_tools
 apply_appearance
 
 if (($DO_SDDM)); then
