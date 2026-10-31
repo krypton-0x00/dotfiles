@@ -1,0 +1,195 @@
+[
+  {
+    "settings": {
+      "disableAll": false,
+      "exposeIframes": false,
+      "exposeIframes.sites": "",
+      "exposeIframes.sitesOnly": false,
+      "exposeStyleName": false,
+      "keepAlive": 0,
+      "keepAliveIdle": false,
+      "newStyleAsUsercss": false,
+      "openEditInWindow": true,
+      "openEditInWindow.popup": false,
+      "patchCsp": false,
+      "patchCsp.sites": "",
+      "patchCsp.sitesOnly": false,
+      "show-badge": true,
+      "styleViaASS": false,
+      "styleViaASS.sites": "",
+      "styleViaASS.sitesOnly": false,
+      "styleViaXhr": false,
+      "styleViaXhr.sites": "",
+      "styleViaXhr.sitesOnly": false,
+      "urlInstaller": true,
+      "windowPosition": {
+        "left": 0,
+        "top": 0,
+        "width": 1900,
+        "height": 1032
+      },
+      "compactWidth": 850,
+      "config.autosave": true,
+      "schemeSwitcher.enabled": "system",
+      "schemeSwitcher.nightStart": "18:00",
+      "schemeSwitcher.nightEnd": "06:00",
+      "popup.enabledFirst": true,
+      "popup.stylesFirst": true,
+      "popup.autoResort": false,
+      "popup.borders": false,
+      "popup.findSort": "w",
+      "manage.onlyEnabled": false,
+      "manage.onlyLocal": false,
+      "manage.onlyUsercss": false,
+      "manage.onlyEnabled.invert": false,
+      "manage.onlyLocal.invert": false,
+      "manage.onlyUsercss.invert": false,
+      "manage.actions.expanded": false,
+      "manage.backup.expanded": true,
+      "manage.filters.expanded": true,
+      "manage.links.expanded": true,
+      "manage.minColumnWidth": 750,
+      "manage.newUI": true,
+      "manage.newUI.favicons": true,
+      "manage.newUI.faviconsGray": false,
+      "manage.newUI.targets": 3,
+      "manage.newUI.sort": "title,asc",
+      "manage.searchMode": "meta",
+      "editor.options": {},
+      "editor.toc.expanded": true,
+      "editor.options.expanded": true,
+      "editor.options.style.expanded": true,
+      "editor.general.expanded": true,
+      "editor.lint.expanded": true,
+      "editor.publish.expanded": true,
+      "editor.lineWrapping": true,
+      "editor.smartIndent": true,
+      "editor.indentWithTabs": false,
+      "editor.tabSize": 4,
+      "editor.keyMap": "default",
+      "editor.theme": "default",
+      "editor.beautify": {
+        "selector_separator_newline": true,
+        "newline_before_open_brace": false,
+        "newline_after_open_brace": true,
+        "newline_between_properties": true,
+        "newline_before_close_brace": true,
+        "newline_between_rules": false,
+        "preserve_newlines": true,
+        "end_with_newline": false,
+        "indent_conditional": true,
+        "indent_mozdoc": true,
+        "space_around_combinator": true,
+        "space_around_cmp": false
+      },
+      "editor.beautify.hotkey": "",
+      "editor.toggle.hotkey": "Alt-Enter",
+      "editor.toggle.save": false,
+      "editor.linter": "csslint",
+      "editor.linter.on": true,
+      "editor.lintReportDelay": 500,
+      "editor.matchHighlight": "token",
+      "editor.autoCloseBrackets": true,
+      "editor.autocompleteOnTyping": false,
+      "editor.contextDelete": false,
+      "editor.selectByTokens": true,
+      "editor.arrowKeysTraverse": true,
+      "editor.appliesToLineWidget": true,
+      "editor.autosaveDraft": 10,
+      "editor.livePreview": true,
+      "editor.livePreview.delay": 0.2,
+      "editor.targetsFirst": true,
+      "editor.colorpicker": true,
+      "editor.colorpicker.hexUppercase": 0,
+      "editor.colorpicker.hotkey": "",
+      "editor.colorpicker.color": "",
+      "editor.colorpicker.maxHeight": 300,
+      "hotkey._execute_browser_action": "",
+      "hotkey.openManage": "",
+      "hotkey.styleDisableAll": "",
+      "hotkey.toggleTab": "",
+      "sync.enabled": "none",
+      "iconset": -1,
+      "badgeDisabled": "#8B0000",
+      "badgeNormal": "#006666",
+      "headerWidth.edit": 280,
+      "headerWidth.install": 280,
+      "headerWidth.manage": 280,
+      "popup.search.globals": false,
+      "popup.sidePanel": false,
+      "popup.sidePanel.config": -1,
+      "popup.sidePanel.editor": false,
+      "popup.sidePanel.finder": false,
+      "popup.sidePanel.manager": false,
+      "popup.sidePanel.options": true,
+      "popup.toggler.expanded": false,
+      "popupWidth": 246,
+      "popupWidthMax": 280,
+      "updateInterval": 24,
+      "updateOnlyEnabled": false
+    },
+    "order": {
+      "main": [],
+      "prio": []
+    }
+  },
+  {
+    "enabled": true,
+    "installDate": 1793013450868,
+    "name": "Academy Modules",
+    "sections": [
+      {
+        "code": "\n/* Academy HTB - Dark Theme */\n\nhtml,\nbody {\n    background-color: #000000 !important;\n    color: #e0e0e0 !important;\n}\n\n/* Main containers */\n.container,\n.container-fluid,\nmain,\nsection,\n.content,\n.card,\n.panel {\n    background-color: #000000 !important;\n    color: #e0e0e0 !important;\n}\n\n/* Navigation */\nnav,\n.navbar,\nheader {\n    background-color: #080808 !important;\n    color: #ffffff !important;\n}\n\n/* Text */\nh1, h2, h3, h4, h5, h6,\np, span, label, li {\n    color: #e0e0e0;\n}\n\n/* Links */\na {\n    color: #00bfff !important;\n}\n\n/* Inputs */\ninput,\ntextarea,\nselect {\n    background-color: #111111 !important;\n    color: #ffffff !important;\n    border: 1px solid #333333 !important;\n}\n\n/* Buttons */\nbutton,\n.btn {\n    background-color: #151515 !important;\n    color: #ffffff !important;\n    border-color: #333333 !important;\n}\n\n/* Tables */\ntable,\nth,\ntd {\n    background-color: #080808 !important;\n    color: #e0e0e0 !important;\n    border-color: #333333 !important;\n}\n\n/* Borders */\n.card,\n.panel {\n    border-color: #222222 !important;\n}\n\n/* Scrollbar */\n::-webkit-scrollbar {\n    width: 10px;\n}\n\n::-webkit-scrollbar-track {\n    background: #000000;\n}\n\n::-webkit-scrollbar-thumb {\n    background: #333333;\n}\n\n\n/* Academy HTB - Dark Red Inline Code */\n\n/* Inline code and highlighted text */\ncode,\npre code,\np code,\nli code,\n[class*=\"highlight\"] code {\n    color: #8b0000 !important;\n    background-color: #151515 !important;\n    border-color: #330000 !important;\n}\n\n/* Inline code links */\na code,\ncode a,\np a code {\n    color: #a00000 !important;\n}\n\n/* Text links */\na {\n    color: #990000 !important;\n}\n\n/* Hover effect */\na:hover,\na code:hover {\n    color: #cc0000 !important;\n}\n\n/* Code blocks */\npre,\n.hljs {\n    background-color: #080808 !important;\n    border: 1px solid #292929 !important;\n}\n\n/* Keep code readable */\npre code {\n    color: #b22222 !important;\n}\n\n/* Academy inline highlighted text */\n.markdown code,\n.content code,\narticle code {\n    color: #8b0000 !important;\n    background: #151515 !important;\n}\n\n\n/* =====================================\n   Academy HTB - Dark Red Text Selection\n   ===================================== */\n\n/* Selected text */\n::selection {\n    color: #ffcccc !important;\n    background-color: #8b0000 !important;\n}\n\n/* Firefox selection */\n::-moz-selection {\n    color: #ffcccc !important;\n    background-color: #8b0000 !important;\n}\n\n/* Selected text inside code */\ncode::selection,\npre::selection {\n    color: #ffffff !important;\n    background-color: #a00000 !important;\n}\n\ncode::-moz-selection,\npre::-moz-selection {\n    color: #ffffff !important;\n    background-color: #a00000 !important;\n}\n",
+        "domains": [
+          "academy.hackthebox.com"
+        ]
+      }
+    ],
+    "_rev": 1793015872199,
+    "updateDate": 1793015872199,
+    "_id": "e7a1f129-1e5a-4614-b7b5-e990c0478051",
+    "id": 1
+  },
+  {
+    "enabled": true,
+    "installDate": 1793281725287,
+    "name": "ZAZZU — Redline Dark",
+    "sections": [
+      {
+        "code": "/*\n  Palette sampled/approximated from your reference:\n  background: #080809 | panel: #101012 | border: #29272b\n  text: #eeeae6 | muted: #88858d | signal red: #e21d38\n*/\n\n/* =========================================================\n   HACK THE BOX\n   ========================================================= */"
+      },
+      {
+        "code": ":root {\n    color-scheme: dark !important;\n    --z-red: #e21d38;\n    --z-bg: #080809;\n    --z-panel: #101012;\n    --z-panel-2: #151316;\n    --z-line: #29272b;\n    --z-text: #eeeae6;\n    --z-muted: #88858d;\n    --color-primary: #e21d38 !important;\n    --color-primary-hover: #ff304b !important;\n  }\n\n  html, body, #root, #app, main {\n    background-color: var(--z-bg) !important;\n    color: var(--z-text) !important;\n  }\n\n  body, button, input, textarea, select {\n    color: var(--z-text);\n  }\n\n  header, nav, aside, [role=\"navigation\"],\n  [class*=\"sidebar\"], [class*=\"Sidebar\"],\n  [class*=\"navbar\"], [class*=\"Navbar\"],\n  [class*=\"header\"], [class*=\"Header\"] {\n    border-color: var(--z-line) !important;\n  }\n\n  [class*=\"card\"], [class*=\"Card\"],\n  [class*=\"panel\"], [class*=\"Panel\"],\n  [class*=\"modal\"], [class*=\"Modal\"],\n  [class*=\"dropdown\"], [class*=\"Dropdown\"],\n  [class*=\"popover\"], [class*=\"Popover\"] {\n    background-color: var(--z-panel) !important;\n    border-color: var(--z-line) !important;\n    box-shadow: none !important;\n  }\n\n  button, [role=\"button\"], a,\n  [class*=\"button\"], [class*=\"Button\"] {\n    transition: color .15s ease, background-color .15s ease, border-color .15s ease !important;\n  }\n\n  a, [class*=\"link\"], [class*=\"Link\"] {\n    color: var(--z-text);\n  }\n\n  a:hover, [class*=\"link\"]:hover, [class*=\"Link\"]:hover {\n    color: var(--z-red) !important;\n  }\n\n  button[class*=\"primary\"], [class*=\"primaryButton\"],\n  [class*=\"PrimaryButton\"], [class*=\"btn-primary\"] {\n    background: var(--z-red) !important;\n    border-color: var(--z-red) !important;\n    color: #fff !important;\n  }\n\n  input, textarea, select, [role=\"textbox\"] {\n    background: #0c0c0e !important;\n    border-color: #38343a !important;\n    color: var(--z-text) !important;\n    box-shadow: none !important;\n  }\n\n  ::selection { background: #e21d3866 !important; color: #fff !important; }",
+        "domains": [
+          "hackthebox.com",
+          "app.hackthebox.com"
+        ]
+      },
+      {
+        "code": "/* =========================================================\n   CHATGPT\n   ========================================================= */"
+      },
+      {
+        "code": ":root {\n    color-scheme: dark !important;\n    --z-red: #e21d38;\n    --z-bg: #080809;\n    --z-panel: #101012;\n    --z-panel-2: #151316;\n    --z-line: #29272b;\n    --z-text: #eeeae6;\n    --z-muted: #a09ba3;\n    --main-surface-primary: #101012 !important;\n    --main-surface-secondary: #151316 !important;\n    --main-surface-tertiary: #1a181c !important;\n    --sidebar-surface-primary: #0b0b0d !important;\n    --border-light: #29272b !important;\n    --text-primary: #eeeae6 !important;\n    --text-secondary: #a09ba3 !important;\n    --link: #e21d38 !important;\n  }\n\n  html, body {\n    background: var(--z-bg) !important;\n    color: var(--z-text) !important;\n  }\n\n  body, main, [role=\"main\"],\n  #thread, [data-testid*=\"conversation\"] {\n    color: var(--z-text);\n  }\n\n  nav, aside, [data-testid*=\"sidebar\"],\n  [class*=\"sidebar\"], [class*=\"Sidebar\"] {\n    background-color: #0b0b0d !important;\n    border-color: var(--z-line) !important;\n  }\n\n  article, [data-message-author-role],\n  [data-testid*=\"conversation-turn\"],\n  [class*=\"prose\"] {\n    color: var(--z-text);\n  }\n\n  [data-message-author-role=\"assistant\"] {\n    background: transparent !important;\n  }\n\n  textarea, input, [contenteditable=\"true\"],\n  [data-testid=\"prompt-textarea\"] {\n    background-color: #101012 !important;\n    color: var(--z-text) !important;\n    border-color: #343037 !important;\n    caret-color: var(--z-red) !important;\n    box-shadow: none !important;\n  }\n\n  form:has([data-testid=\"prompt-textarea\"]),\n  [class*=\"composer\"], [class*=\"Composer\"] {\n    border-color: var(--z-line) !important;\n  }\n\n  button, [role=\"button\"] {\n    transition: background-color .15s ease, border-color .15s ease, color .15s ease !important;\n  }\n\n  button:hover, [role=\"button\"]:hover {\n    border-color: #5a2731 !important;\n  }\n\n  a { color: #f05a6c; }\n  a:hover { color: #ff8492 !important; }\n\n  pre, code, [class*=\"code-block\"] {\n    background-color: #0c0c0e !important;\n    border-color: var(--z-line) !important;\n  }\n\n  ::selection { background: #e21d3866 !important; color: #fff !important; }",
+        "domains": [
+          "chatgpt.com",
+          "chat.openai.com"
+        ]
+      },
+      {
+        "code": "/* =========================================================\n   YOUTUBE\n   ========================================================= */"
+      },
+      {
+        "code": ":root {\n    color-scheme: dark !important;\n    --z-red: #e21d38;\n    --z-bg: #080809;\n    --z-panel: #101012;\n    --z-panel-2: #151316;\n    --z-line: #29272b;\n    --z-text: #eeeae6;\n    --z-muted: #a09ba3;\n    --yt-spec-base-background: #080809 !important;\n    --yt-spec-raised-background: #101012 !important;\n    --yt-spec-menu-background: #101012 !important;\n    --yt-spec-text-primary: #eeeae6 !important;\n    --yt-spec-text-secondary: #a09ba3 !important;\n    --yt-spec-10-percent-layer: #ffffff12 !important;\n    --yt-spec-call-to-action: #e21d38 !important;\n    --yt-spec-brand-button-background: #e21d38 !important;\n    --yt-spec-brand-link-text: #f05a6c !important;\n  }\n\n  html, body, ytd-app, #content, #page-manager,\n  ytd-browse, ytd-watch-flexy, #masthead-container {\n    background-color: var(--z-bg) !important;\n    color: var(--z-text) !important;\n  }\n\n  #masthead, ytd-masthead, #guide-content,\n  ytd-mini-guide-renderer, tp-yt-paper-dialog,\n  ytd-popup-container, ytd-menu-popup-renderer,\n  ytd-multi-page-menu-renderer {\n    background-color: #0b0b0d !important;\n    border-color: var(--z-line) !important;\n  }\n\n  ytd-rich-item-renderer, ytd-video-renderer,\n  ytd-compact-video-renderer, ytd-playlist-renderer,\n  ytd-guide-entry-renderer, ytd-guide-section-renderer,\n  ytd-watch-metadata, #secondary, #comments,\n  ytd-comment-thread-renderer {\n    background-color: transparent !important;\n  }\n\n  yt-chip-cloud-chip-renderer,\n  yt-chip-cloud-chip-renderer[chip-style=\"STYLE_DEFAULT\"],\n  ytd-feed-filter-chip-bar-renderer {\n    --yt-spec-button-chip-background: #151316 !important;\n    --yt-spec-button-chip-text: #d7d2d5 !important;\n  }\n\n  ytd-searchbox, #search-form, #container.ytd-searchbox,\n  input#search, ytd-masthead #search {\n    background-color: #101012 !important;\n    border-color: #343037 !important;\n  }\n\n  a, yt-formatted-string a { color: #f05a6c; }\n  a:hover, yt-formatted-string a:hover { color: #ff8492 !important; }\n\n  ytd-button-renderer[is-paper-button] #button,\n  yt-button-shape button,\n  ytd-subscribe-button-renderer button,\n  #subscribe-button button {\n    --yt-spec-button-chip-background: #e21d38 !important;\n  }\n\n  #progress, .ytp-play-progress, .ytp-swatch-background-color {\n    background: var(--z-red) !important;\n  }\n\n  .ytp-menuitem:hover, tp-yt-paper-item:hover,\n  ytd-menu-service-item-renderer:hover {\n    background-color: #201116 !important;\n  }\n\n  ::selection { background: #e21d3866 !important; color: #fff !important; }",
+        "domains": [
+          "youtube.com",
+          "www.youtube.com",
+          "music.youtube.com"
+        ]
+      }
+    ],
+    "_rev": 1793281725287,
+    "updateDate": 1793281725287,
+    "_id": "4ed569de-8679-4c37-8a58-1c89433d9c98",
+    "id": 2
+  }
+]
